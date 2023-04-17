@@ -1,5 +1,5 @@
 <script>
-	</script>
+</script>
 
 <svelte:head>
 	<title>Home</title>
@@ -8,10 +8,40 @@
 
 <section>
 	<h3>Hero's of Ukraine, coming soon.</h3>
-	<p>This website aims to log all the hero's of Ukraine that have sadly died defending freedom.
-		It is crowd sourced, using volunteers, and reddit scraping to find the information.
+	<p>
+		This website aims to log all the hero's of Ukraine that have sadly died defending freedom. It is
+		crowd sourced, using volunteers, and reddit scraping to find the information.
 	</p>
-	<p>If you would like to get involved please contact me on <a href="https://www.reddit.com/user/Ok-Ranger-8016">Reddit</a></p>
+	<p>
+		If you would like to get involved please contact me on <a
+			href="https://www.reddit.com/user/Ok-Ranger-8016">Reddit</a
+		>
+	</p>
+</section>
+
+<section>
+	<p>Placeholders</p>
+	<table>
+		<thead>
+			<tr>
+				<th>Image</th>
+				<th>Hero's Name</th>
+				<th>Age</th>
+				<th>Location</th>
+				<th>Death</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="https://i.redd.it/c3efmpaoj8ua1.jpg" class="profile" /></td>
+				<td>Artur Pashkulyak</td>
+				<td>44</td>
+				<td>Bakhmut</td>
+				<td>March 22</td>
+			</tr>
+		</tbody>
+	</table>
 </section>
 
 <style>
@@ -21,6 +51,18 @@
 		justify-content: center;
 		align-items: center;
 		flex: 0.6;
+	}
+
+	.profile {
+		width: 150px;
+		height: 150px;
+	}
+	table {
+		width: 100%;
+	}
+
+	td {
+		text-align: center;
 	}
 
 	h1 {
