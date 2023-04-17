@@ -110,6 +110,18 @@
 				<td>Glukhiva</td>
 				<td>Apr 4</td>
 			</tr>
+			<tr>
+				<td>
+					<img
+						src="https://preview.redd.it/s4jwb1v1knsa1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=678d83c2de78eb11c816b293a1c3bb89f622d956"
+						class="profile"
+					/>
+				</td>
+				<td>Oleg Martymyanov</td>
+				<td>Unknown</td>
+				<td>Bakhmut</td>
+				<td>April 11</td>
+			</tr>
 		</tbody>
 	</table>
 </section>
