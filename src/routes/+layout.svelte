@@ -1,17 +1,18 @@
 <script>
-	import Header from './Header.svelte';
 	import './styles.css';
 </script>
 
 <div class="app">
-	<Header />
-
 	<main>
 		<slot />
 	</main>
 
 	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+		<p>
+			Developed and Managed by <a href="https://www.reddit.com/user/Ok-Ranger-8016"
+				>Ok-Ranger-8016</a
+			>
+		</p>
 	</footer>
 </div>
 

@@ -1,8 +1,5 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
-</script>
+	</script>
 
 <svelte:head>
 	<title>Home</title>
@@ -10,22 +7,11 @@
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+	<h3>Hero's of Ukraine, coming soon.</h3>
+	<p>This website aims to log all the hero's of Ukraine that have sadly died defending freedom.
+		It is crowd sourced, using volunteers, and reddit scraping to find the information.
+	</p>
+	<p>If you would like to get involved please contact me on <a href="https://www.reddit.com/user/Ok-Ranger-8016">Reddit</a></p>
 </section>
 
 <style>
