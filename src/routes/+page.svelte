@@ -122,6 +122,18 @@
 				<td>Bakhmut</td>
 				<td>April 11</td>
 			</tr>
+			<tr>
+				<td>
+					<img
+						src="https://preview.redd.it/rvbs5fqo80ta1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=8b5c34db113d60e2e6a680bef8bd6cfc5068aff2"
+						class="profile"
+					/>
+				</td>
+				<td>Andriy Boyko</td>
+				<td>Unknown</td>
+				<td>Gulyaipol</td>
+				<td>April 6</td>
+			</tr>
 		</tbody>
 	</table>
 </section>
