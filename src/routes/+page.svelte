@@ -77,6 +77,39 @@
 				<td>Chervonopopivka</td>
 				<td>March 27</td>
 			</tr>
+			<tr>
+				<td
+					><img
+						src="https://preview.redd.it/jcmt7osqx5ta1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=0af76fb81a4ebe8ced658cac3fb49d93fbdd6b94"
+						class="profile"
+					/></td
+				>
+				<td>Andriy Vorobkalo</td>
+				<td>26</td>
+				<td>Bakhmut</td>
+				<td>Feb 24</td>
+			</tr>
+			<tr>
+				<td
+					><img
+						src="https://preview.redd.it/kt8uzx1i3fra1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=50c890ef391b3d78f1145fb9cb17eeed29e964c4"
+						class="profile"
+					/></td
+				>
+				<td>Daniil Liashuk</td>
+				<td>32</td>
+				<td>Bakhmut</td>
+				<td>Apr 3</td>
+			</tr>
+			<tr>
+				<td>
+					<img src="https://i.redd.it/dts2rnbkv9sa1.jpg" class="profile" />
+				</td>
+				<td> Kateryna Yushchenko </td>
+				<td>33</td>
+				<td>Glukhiva</td>
+				<td>Apr 4</td>
+			</tr>
 		</tbody>
 	</table>
 </section>
