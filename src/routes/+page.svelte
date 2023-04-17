@@ -41,10 +41,13 @@
 				<td>March 22</td>
 			</tr>
 			<tr>
-				<img
-					src="https://preview.redd.it/jdm0iic7y0ua1.jpg?width=320&crop=smart&auto=webp&v=enabled&s=e74b2371972fc0dc60686e1cf2b75fd09cad2be3"
-					class="profile"
-				/>
+				<td>
+					<img
+						src="https://preview.redd.it/jdm0iic7y0ua1.jpg?width=320&crop=smart&auto=webp&v=enabled&s=e74b2371972fc0dc60686e1cf2b75fd09cad2be3"
+						class="profile"
+					/>
+				</td>
+
 				<td>Artur Asadov</td>
 				<td>26</td>
 				<td>Eastern Front</td>
@@ -61,6 +64,18 @@
 				<td>30</td>
 				<td>Bakhmut</td>
 				<td>End of Feb</td>
+			</tr>
+			<tr>
+				<td>
+					<img
+						src="https://preview.redd.it/whmarfhkf1qa1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=ecd478c2b7c1d69bb766fb7f41eae3da783e2f55"
+						class="profile"
+					/>
+				</td>
+				<td>Maksym Galinichev</td>
+				<td>22</td>
+				<td>Chervonopopivka</td>
+				<td>March 27</td>
 			</tr>
 		</tbody>
 	</table>
