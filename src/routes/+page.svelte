@@ -40,6 +40,28 @@
 				<td>Bakhmut</td>
 				<td>March 22</td>
 			</tr>
+			<tr>
+				<img
+					src="https://preview.redd.it/jdm0iic7y0ua1.jpg?width=320&crop=smart&auto=webp&v=enabled&s=e74b2371972fc0dc60686e1cf2b75fd09cad2be3"
+					class="profile"
+				/>
+				<td>Artur Asadov</td>
+				<td>26</td>
+				<td>Eastern Front</td>
+				<td>End of March</td>
+			</tr>
+			<tr>
+				<td>
+					<img
+						src="https://preview.redd.it/k1gviou8sena1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=599aa027e628d52fdd489c1f532c50cefd9dcb57"
+						class="profile"
+					/>
+				</td>
+				<td>Tatyana Fesenko</td>
+				<td>30</td>
+				<td>Bakhmut</td>
+				<td>End of Feb</td>
+			</tr>
 		</tbody>
 	</table>
 </section>
