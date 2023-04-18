@@ -146,6 +146,18 @@
 				<td>Donestk</td>
 				<td>Middle of April</td>
 			</tr>
+			<tr>
+				<td>
+					<img
+						src="https://preview.redd.it/l436owfvppua1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=26bedcfd62379d21b3285e7f99723364ea0e6fcb"
+						class="profile"
+					/>
+				</td>
+				<td>Volodymyr Marchuk</td>
+				<td>25</td>
+				<td>Bohdanivka, Donetsk</td>
+				<td>April 10</td>
+			</tr>
 		</tbody>
 	</table>
 </section>
