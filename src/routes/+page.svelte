@@ -134,6 +134,18 @@
 				<td>Gulyaipol</td>
 				<td>April 6</td>
 			</tr>
+			<tr>
+				<td>
+					<img
+						src="https://preview.redd.it/tl0t7t9c7nua1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=0da993d5449426003230a37904bc54a139e6527b"
+						class="profile"
+					/>
+				</td>
+				<td>Vitaly Izyumchanyn</td>
+				<td>Unknown</td>
+				<td>Donestk</td>
+				<td>Middle of April</td>
+			</tr>
 		</tbody>
 	</table>
 </section>
