@@ -1,166 +1,41 @@
-<script>
+<script lang="ts">
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Heroes of Ukraine - A place to remember fallen heros</title>
+	<meta
+		name="description"
+		content="Slava Ukraini, Heroiam Slava. Welcome to heroiamslava, and open source project to help record the fallen heroes of Ukraine, lest they be forgotten like wars before current events. The heros of Ukraine deserve recognition, they deserve respect and most of all, I believe it is our duty, as the living member of a free and democratic society, to ensure that the memories of those that died defending freedom, will never be forgotten"
+	/>
 </svelte:head>
-
 <section>
-	<h3>Hero's of Ukraine, coming soon.</h3>
-	<p>
-		This website aims to log all the hero's of Ukraine that have sadly died defending freedom. It is
-		crowd sourced, using volunteers, and reddit scraping to find the information.
-	</p>
-	<p>
-		If you would like to get involved please contact me on <a
-			href="https://www.reddit.com/user/Ok-Ranger-8016">Reddit</a
-		>
+	<h1 class="title">Slava Ukraini. Heroiam Slava</h1>
+	<p class="intro">
+		Welcome to <i>heroiamslava.co.uk</i>, a project created by Nathan (also known as Ok-Ranger). Our
+		aim is to provide a lasting tribute to the brave Ukrainian soldiers who have lost their lives in
+		the conflict. We understand that the current way of sharing news of these fallen heroes on
+		platforms like Reddit and Telegram can result in their stories being lost or forgotten amidst
+		the constant stream of other posts.
+		<br />
+		To combat this, our platform uses AI and specialized bots to scrape through these channels for relevant
+		information. In cases where there isn't enough information available, we manually search for additional
+		details to ensure that every soldier's story is properly documented. Our mission is to provide a
+		space where these soldiers can be remembered and honored for their bravery and sacrifice.
+		<br />
+		We believe that it's important to pay tribute to those who have fought and died in defense of their
+		country, and to ensure that their memory lives on. By providing a centralized platform for sharing
+		information and stories, we hope to create a lasting record of these heroic individuals.
+		<br />
+		Thank you for visiting heroiamslava.co.uk, and we hope that you find it a meaningful and valuable
+		resource for remembering and honoring the fallen soldiers of Ukraine.
+		<br />
+		We are considering adding a section of this website dedicated to innocent Ukrainian civilians who
+		have lost their lives in the conflict. If you have any thoughts or suggestions on this, please contact
+		me on Reddit
 	</p>
 </section>
 
-<section>
-	<p>Placeholders</p>
-	<table>
-		<thead>
-			<tr>
-				<th>Image</th>
-				<th>Hero's Name</th>
-				<th>Age</th>
-				<th>Location</th>
-				<th>Death</th>
-				<th>Details</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><img src="https://i.redd.it/c3efmpaoj8ua1.jpg" class="profile" /></td>
-				<td>Artur Pashkulyak</td>
-				<td>44</td>
-				<td>Bakhmut</td>
-				<td>March 22</td>
-			</tr>
-			<tr>
-				<td>
-					<img
-						src="https://preview.redd.it/jdm0iic7y0ua1.jpg?width=320&crop=smart&auto=webp&v=enabled&s=e74b2371972fc0dc60686e1cf2b75fd09cad2be3"
-						class="profile"
-					/>
-				</td>
-
-				<td>Artur Asadov</td>
-				<td>26</td>
-				<td>Eastern Front</td>
-				<td>End of March</td>
-			</tr>
-			<tr>
-				<td>
-					<img
-						src="https://preview.redd.it/k1gviou8sena1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=599aa027e628d52fdd489c1f532c50cefd9dcb57"
-						class="profile"
-					/>
-				</td>
-				<td>Tatyana Fesenko</td>
-				<td>30</td>
-				<td>Bakhmut</td>
-				<td>End of Feb</td>
-			</tr>
-			<tr>
-				<td>
-					<img
-						src="https://preview.redd.it/whmarfhkf1qa1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=ecd478c2b7c1d69bb766fb7f41eae3da783e2f55"
-						class="profile"
-					/>
-				</td>
-				<td>Maksym Galinichev</td>
-				<td>22</td>
-				<td>Chervonopopivka</td>
-				<td>March 27</td>
-			</tr>
-			<tr>
-				<td
-					><img
-						src="https://preview.redd.it/jcmt7osqx5ta1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=0af76fb81a4ebe8ced658cac3fb49d93fbdd6b94"
-						class="profile"
-					/></td
-				>
-				<td>Andriy Vorobkalo</td>
-				<td>26</td>
-				<td>Bakhmut</td>
-				<td>Feb 24</td>
-			</tr>
-			<tr>
-				<td
-					><img
-						src="https://preview.redd.it/kt8uzx1i3fra1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=50c890ef391b3d78f1145fb9cb17eeed29e964c4"
-						class="profile"
-					/></td
-				>
-				<td>Daniil Liashuk</td>
-				<td>32</td>
-				<td>Bakhmut</td>
-				<td>Apr 3</td>
-			</tr>
-			<tr>
-				<td>
-					<img src="https://i.redd.it/dts2rnbkv9sa1.jpg" class="profile" />
-				</td>
-				<td> Kateryna Yushchenko </td>
-				<td>33</td>
-				<td>Glukhiva</td>
-				<td>Apr 4</td>
-			</tr>
-			<tr>
-				<td>
-					<img
-						src="https://preview.redd.it/s4jwb1v1knsa1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=678d83c2de78eb11c816b293a1c3bb89f622d956"
-						class="profile"
-					/>
-				</td>
-				<td>Oleg Martymyanov</td>
-				<td>Unknown</td>
-				<td>Bakhmut</td>
-				<td>April 11</td>
-			</tr>
-			<tr>
-				<td>
-					<img
-						src="https://preview.redd.it/rvbs5fqo80ta1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=8b5c34db113d60e2e6a680bef8bd6cfc5068aff2"
-						class="profile"
-					/>
-				</td>
-				<td>Andriy Boyko</td>
-				<td>Unknown</td>
-				<td>Gulyaipol</td>
-				<td>April 6</td>
-			</tr>
-			<tr>
-				<td>
-					<img
-						src="https://preview.redd.it/tl0t7t9c7nua1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=0da993d5449426003230a37904bc54a139e6527b"
-						class="profile"
-					/>
-				</td>
-				<td>Vitaly Izyumchanyn</td>
-				<td>Unknown</td>
-				<td>Donestk</td>
-				<td>Middle of April</td>
-			</tr>
-			<tr>
-				<td>
-					<img
-						src="https://preview.redd.it/l436owfvppua1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=26bedcfd62379d21b3285e7f99723364ea0e6fcb"
-						class="profile"
-					/>
-				</td>
-				<td>Volodymyr Marchuk</td>
-				<td>25</td>
-				<td>Bohdanivka, Donetsk</td>
-				<td>April 10</td>
-			</tr>
-		</tbody>
-	</table>
-</section>
+<section />
 
 <style>
 	section {
@@ -170,36 +45,19 @@
 		align-items: center;
 		flex: 0.6;
 	}
-
-	.profile {
-		width: 150px;
-		height: 150px;
+	.title {
+		font-family: 'Poppins';
+		font-weight: 700;
 	}
-	table {
-		width: 100%;
+	.intro {
+		font-family: 'Poppins';
+		font-weight: 400;
+		font-size: 1.25rem;
 	}
-
-	td {
-		text-align: center;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
+	br {
 		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+		margin: 10px 0;
+		line-height: 22px; /* Safari */
+		content: ' '; /* Chrome */
 	}
 </style>

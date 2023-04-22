@@ -1,0 +1,185 @@
+{
+	"heros": [
+		{
+			"name": "Artur Pashkulyak",
+			"age": 44,
+			"location": "Bakhmut",
+			"death": "March 22",
+			"images": ["https://i.redd.it/c3efmpaoj8ua1.jpg"]
+		},
+		{
+			"name": "Artur Asadov",
+			"age": 26,
+			"location": "Eastern Front",
+			"death": "End of March",
+			"images": [
+				"https://preview.redd.it/jdm0iic7y0ua1.jpg?width=320&crop=smart&auto=webp&v=enabled&s=e74b2371972fc0dc60686e1cf2b75fd09cad2be3"
+			]
+		},
+		{
+			"name": "Tatyana Fesenko",
+			"age": 30,
+			"location": "Bakhmut",
+			"death": "End of Feb",
+			"images": [
+				"https://preview.redd.it/k1gviou8sena1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=599aa027e628d52fdd489c1f532c50cefd9dcb57"
+			]
+		},
+		{
+			"name": "Maksym Galinichev",
+			"age": 22,
+			"location": "Chervonopopivka",
+			"death": "March 27",
+			"images": [
+				"https://preview.redd.it/whmarfhkf1qa1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=ecd478c2b7c1d69bb766fb7f41eae3da783e2f55"
+			]
+		},
+		{
+			"name": "Andriy Vorobkalo",
+			"age": 26,
+			"location": "Bakhmut",
+			"death": "Feb 24",
+			"images": [
+				"https://preview.redd.it/jcmt7osqx5ta1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=0af76fb81a4ebe8ced658cac3fb49d93fbdd6b94"
+			]
+		},
+		{
+			"name": "Daniil Liashuk",
+			"age": 32,
+			"location": "Bakhmut",
+			"death": "April 3",
+			"images": [
+				"https://preview.redd.it/kt8uzx1i3fra1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=50c890ef391b3d78f1145fb9cb17eeed29e964c4"
+			]
+		},
+		{
+			"name": "Kateryna Yushchenko",
+			"age": 33,
+			"location": "Gluhiva",
+			"death": "April 4",
+			"images": ["https://i.redd.it/dts2rnbkv9sa1.jpg"]
+		},
+		{
+			"name": "Oleg Martymyanov",
+			"age": null,
+			"location": "Eastern Front",
+			"death": "Aprill 11",
+			"images": [
+				"https://preview.redd.it/s4jwb1v1knsa1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=678d83c2de78eb11c816b293a1c3bb89f622d956\""
+			]
+		},
+		{
+			"name": "Andriy Boyko",
+			"age": null,
+			"location": "Gulyaipol",
+			"death": "April 6",
+			"images": [
+				"https://preview.redd.it/rvbs5fqo80ta1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=8b5c34db113d60e2e6a680bef8bd6cfc5068aff2"
+			]
+		},
+		{
+			"name": "Vitaly Izyumchanyn",
+			"age": null,
+			"location": "Donetsk",
+			"death": "April 16",
+			"images": [
+				"https://preview.redd.it/tl0t7t9c7nua1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=0da993d5449426003230a37904bc54a139e6527b"
+			]
+		},
+		{
+			"name": "Volodymyr Marchuk",
+			"age": 25,
+			"location": "Bohdanivka, Donetsk",
+			"death": "April 10",
+			"images": [
+				"https://preview.redd.it/l436owfvppua1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=26bedcfd62379d21b3285e7f99723364ea0e6fcb"
+			]
+		},
+		{
+			"name": "Szerhij Pataki",
+			"age": null,
+			"location": "Donetsk",
+			"death": "April 19",
+			"images": [
+				"https://preview.redd.it/8ggaebi148va1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=139cdc6b0e33f8e6747547d09f8fac461f6be3b9"
+			]
+		},
+		{
+			"name": "Oleg Barna",
+			"age": 55,
+			"location": "Vugledar",
+			"death": "April 17",
+			"images": [
+				"https://preview.redd.it/xzrexedh0rua1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=d6b1deaf6d38a16ed21492eae703208bd3625450",
+				"https://preview.redd.it/w2mizedh0rua1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=ac63c47040cea730ec121eac1e9f1cffdc3a4949",
+				"https://preview.redd.it/x0cq3fdh0rua1.jpg?width=690&format=pjpg&auto=webp&v=enabled&s=a48babb991b56e6b03dbd95e023b3fa41f97c02c"
+			],
+			"biography": "Oleg Barna was born on April 18th, 1967 in the village of Nahiryanka, Ternopil Oblast. Public and political figure, human rights defender, teacher, military serviceman, participant of the anti-terrorist operation and the Russian-Ukrainian war (sergeant of the Armed Forces). Graduated from Ternopil National Pedagogical University named after Volodymyr Hnatyuk. Worked as a teacher of mathematics, physics, computer science, pre-service training in Rydodubivsk and Bilobozhnytskyi schools (1991-2014), from September 1st, 2021 - assistant of the department of history of Ukraine, archeology and special branches of historical sciences of the Ternopil Pedagogical University. In 1990, he participated in the student hunger strike in Kyiv, known as the \"Revolution on Granite\", later engaged in human rights protection and led the protest movement in Ternopil Oblast, the headquarters of BYUT, etc. Activist of the \"Ukraine without Kuchma\" campaign in 2001, the Orange Revolution and the Revolution of Dignity. In 2002-2010, he was the head of the Nahiryan settlement."
+		},
+		{
+			"name": "Kane Te Tai",
+			"age": 38,
+			"location": "Bakhmut",
+			"death": "March 20",
+			"images": [
+				"https://rnz-ressh.cloudinary.com/image/upload/s--Pfmc-2RH--/t_tohu-badge-twitter/v1679439497/4LBR49Q_Image_003_jpeg",
+				"https://www.nzherald.co.nz/resizer/ZaWlUY1FfLaINMQ4Iz0ONwesQNk=/576x613/smart/filters:quality(70)/cloudfront-ap-southeast-2.images.arcpublishing.com/nzme/3QPOUD2GGRGC3NA4CZIV3WZOGI.jpg",
+				"https://pbs.twimg.com/media/Fr6rOPcWYAE02Pe.jpg"
+			],
+			"biography": "New Zealand Vounteer"
+		},
+		{
+			"name": "Vitaliy Merinov",
+			"age": 33,
+			"location": "Eastern Luhansk",
+			"death": "March 31",
+			"images": [
+				"https://war.ukraine.ua/wp-content/uploads/2023/03/imgonline-com-ua-Black-White-TKOqYFWbECyuh0.jpg",
+				"https://boxrec.com/wiki/thumb.php?f=867558.jpg&width=250"
+			]
+		},
+		{
+			"name": "Oleksii Olkhovyk",
+			"age": 20,
+			"location": "Bakhmut",
+			"death": "March 13",
+			"images": [
+				"https://preview.redd.it/zi722b8gcyna1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=2cbda1896824988479b52e8039a65b469cbb500f",
+				"https://imi.org.ua/upload/media/2023/03/14/64103055e4777-3jdnraaiz5a.jpg",
+				"https://imi.org.ua/upload/news/2023/03/14/1464102ed61a079-64102ec65ea66-326521721-579388146957627-1905753757180458916-n_crop_700x350.jpg?v=1678783944"
+			],
+			"biography": "Oleksii Jurnalist from Suspilne, died in Bakhmut defending Ukraine. He enlisted when the full-scale invasion began, was wounded in September and returned to the frontlines after recovery. Oleksii's sadly leaves behind a baby daughter will soon turn one."
+		},
+		{
+			"name": "Kevin David",
+			"age": 29,
+			"location": "Bakhmut",
+			"death": "",
+			"images": [
+				"https://preview.redd.it/du2xy4pfudra1.jpg?width=1170&format=pjpg&auto=webp&v=enabled&s=1ca1a8f82b1fbda9d7fcaa6430741ce03e07e224",
+				"https://preview.redd.it/exoz15pfudra1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=c6dc54e5c88f23e114aa67a4818b06051b57208e",
+				"https://preview.redd.it/3lmfk5pfudra1.jpg?width=906&format=pjpg&auto=webp&v=enabled&s=b2315756222efccb5d855f69880faf1c030965a4"
+			]
+		},
+		{
+			"name": "Oleksandr Morev",
+			"age": 60,
+			"location": "Bakhmut",
+			"death": "March 14",
+			"images": [" https://i.redd.it/u6z6u23j6una1.jpg"],
+			"biography": "Oleksandr is a former rugby player from Odessa 'KREDO-1963', champion of Ukraine in 2007, former player of the junior national team of Ukraine"
+		},
+		{
+			"name": "S. Lt Dmytro Kotsiubailo",
+			"age": 27,
+			"location": "Bakhmut",
+			"death": "March 7",
+			"images": [
+				"https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F075c97d8-755a-11ec-89e9-22d3d9c31ba2.jpg?crop=3024%2C4032%2C0%2C0",
+				"https://m.groundreport.in/sortd-service/imaginary/v22-01/jpg/large/high?url=Z3JvdW5kcmVwb3J0LWluLXByb2Qtc29ydGQvbWVkaWE5ZTIyNTQyMC1iZjY3LTExZWQtYmY0NC1iZDM5OWMxNTM3NmUud2VicA==",
+				"https://mva.gov.ua/storage/app/sites/1/uploaded-files/20211201-DSC_0054.jpg"
+			],
+			"biography": "Dmytro Kotsiubailo was born on 1 November 1995 in the village of Zadnistrianske, now Burshtyn community, Ivano-Frankivsk Raion, Ivano-Frankivsk Oblast, Ukraine. He graduated from Bovshivka Secondary School and Ivano-Frankivsk Art Lyceum. He was an active participant of the Revolution of Dignity. Participant of the Russo-Ukrainian War, in particular, a platoon commander of volunteers (2014) and a company (2015). In 2014, he was wounded in Pisky, Donetsk Oblast, and returned to the front after recovery. On 17 March 2016, he had served as a captain of an ultra-nationalist volunteer battalion known as the 'Right Sector' and led the 1st Mechanized Battalion 'Da Vinci Wolves', but never joined the Armed Forces of Ukraine."
+		}
+	]
+}

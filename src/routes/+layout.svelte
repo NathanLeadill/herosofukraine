@@ -1,17 +1,19 @@
 <script>
+	import Header from './Header.svelte';
 	import './styles.css';
 </script>
 
 <div class="app">
+	<Header />
 	<main>
 		<slot />
 	</main>
 
 	<footer>
 		<p>
-			Developed and Managed by <a href="https://www.reddit.com/user/Ok-Ranger-8016"
-				>Ok-Ranger-8016</a
-			>
+			Copyright © 2023 <br /> Developed and Managed by
+			<a href="https://www.reddit.com/user/Ok-Ranger-8016">Ok-Ranger-8016</a>
+			<br />If you would like to submit info about a hero, please contact me on Reddit.
 		</p>
 	</footer>
 </div>
@@ -41,7 +43,9 @@
 		align-items: center;
 		padding: 12px;
 	}
-
+	footer p {
+		text-align: center;
+	}
 	footer a {
 		font-weight: bold;
 	}
