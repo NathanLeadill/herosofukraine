@@ -180,6 +180,123 @@
 				"https://mva.gov.ua/storage/app/sites/1/uploaded-files/20211201-DSC_0054.jpg"
 			],
 			"biography": "Dmytro Kotsiubailo was born on 1 November 1995 in the village of Zadnistrianske, now Burshtyn community, Ivano-Frankivsk Raion, Ivano-Frankivsk Oblast, Ukraine. He graduated from Bovshivka Secondary School and Ivano-Frankivsk Art Lyceum. He was an active participant of the Revolution of Dignity. Participant of the Russo-Ukrainian War, in particular, a platoon commander of volunteers (2014) and a company (2015). In 2014, he was wounded in Pisky, Donetsk Oblast, and returned to the front after recovery. On 17 March 2016, he had served as a captain of an ultra-nationalist volunteer battalion known as the 'Right Sector' and led the 1st Mechanized Battalion 'Da Vinci Wolves', but never joined the Armed Forces of Ukraine."
-		}
+		},
+		{
+			"name": "Ruslan Piskovy",
+			"age": 21,
+			"location": " Bakhmut",
+			"death": "April 20",
+			"images": [
+				"https://preview.redd.it/ruslan-piskovy-he-was-a-silver-medalist-of-the-world-v0-2nw7x02y90va1.jpg?width=528&format=pjpg&auto=webp&s=c6a0f424f2299e464495064561fd3f0dcf78c11f",
+				"https://preview.redd.it/wp88q02y90va1.jpg?width=320&crop=smart&auto=webp&v=enabled&s=6f9eb757d982b4e4d37736de2c6db1a318eeca9a",
+				"https://pbs.twimg.com/media/FuK1yKVXoAM6JLN?format=jpg&name=medium"
+			],
+			"biography": "Ruslan was a Silver medalist of the World Kickboxing Championship "
+		},
+		{
+			"name": "Yana Rykhlitska",
+			"civilian": true,
+			"age": 29,
+			"location": "Bakhmut",
+			"death": "March 3",
+			"images": [
+				"https://preview.redd.it/p3s33lvxezla1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=6788ae93bfb61da848e03d1d80c7b18b0e181c53",
+				"https://preview.redd.it/vax1gfaxezla1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=b1e0c232fccaef00c83df17666b5f3409946b515",
+				"https://preview.redd.it/niv97hoxezla1.jpg?width=780&format=pjpg&auto=webp&v=enabled&s=2787834039c528f3e442685a797ba8e83e000fc9"
+			],
+			"biography": "Yana Rykhlitska, an unwavering and compassionate combat medic, demonstrated her unwavering commitment to the well-being of her fellow soldiers amidst the relentless sounds of gunfire and the extreme pressure of the battlefield in Bakhmut. Despite the daunting challenges she faced, Yana remained resolute in her mission to provide medical assistance to the wounded and dying Ukrainian soldiers, embodying the true spirit of a selfless and devoted healthcare provider. However, on March 3rd, fate dealt a cruel blow when Yana was struck down by a sudden burst of Russian artillery fire, tragically ending her heroic journey of service and sacrifice. The memory of Yana's unyielding dedication and courageous spirit will continue to inspire and uplift those who knew and loved her."
+		},
+		{
+			"name": "Maksym Kagal",
+			"age": 30,
+			"location": "Mariupol",
+			"death": "March 25",
+			"images": [
+				"https://preview.redd.it/k17gb5ync1s81.jpg?width=640&crop=smart&auto=webp&v=enabled&s=3b3f4b1b67064cf5d16d008206d4840d0e7afb0d"
+			]
+		},
+		{
+			"name": "Cat Murchyk",
+			"age": null,
+			"location": "Borodyanka",
+			"death": "March 30",
+			"images": [
+				"https://preview.redd.it/iic0i3m6jht81.jpg?width=1036&format=pjpg&auto=webp&v=enabled&s=a6f7faadb87d9da9971ac3a210b7a93ceab63c61"
+			]
+		},
+		{
+			"name": "Nico from Sweden",
+			"age": null,
+			"location": "Donbass",
+			"death": "December 10",
+			"images": [
+				"https://preview.redd.it/r7mjp9ocak5a1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=cd7838378a9d1878318cfb286b3da85037f82f77",
+				"https://preview.redd.it/uc3oxbocak5a1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=d966acfe33e71214314e7275f354ad4d6193cf4a"
+			]
+		},
+		{
+			"name": "Anton Sleba",
+            "age": null,
+            "death": "January 20",
+            "images": [
+                "location": "Bakhmut",
+                "https://i.redd.it/o5dmohv51rda1.jpg"
+            ]
+		}, {
+            "name": "Mykola Litvinov",
+            "age": 23,
+            "location": "January 20",
+            "death": "Bakhmut",
+            "images": [
+                "https://preview.redd.it/345rv6z7jtda1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=0c993c2f89d1bf6ee8d1e5b250f26639855248ec"
+            ]
+        },
+        {
+            "name": "Illya Hrabar",
+            "age": null,
+            "location": "Bakhmut",
+            "death": "December 26",
+            "images": [
+                "https://preview.redd.it/etnl2bihhr8a1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=4743d8c22b16d9fafa5088a15b7465e10e136f66",
+
+            ]
+        }, {
+            "name": "Pryshchep Denys",
+            "age" : 27,
+            "location": "Donestk",
+            "death": "January 17",
+            "images": [
+                "https://i.redd.it/hwt5hg0swuda1.jpg"
+            ]
+        }, {
+            "name": "Andriy Kosyak",
+            "age": null,
+            "location": "Bakhmut",
+            "death": "Jnuary 16",
+            "birthLocation": "Kharkiv",
+            "images": [
+                "https://preview.redd.it/fn5i7b86o5da1.jpg?width=940&format=pjpg&auto=webp&v=enabled&s=9b5e9bc8abae6cbceeb5cae1cd569baa562fa4cf"
+            ]
+        }, {
+            "name": "Taras Stakhiv",
+            "age": null,
+            "locaion": "Bakhmut",
+            "death": "January 16",
+            "birthLocation": "Ivano-Frankivsk",
+            "images": [
+                "https://preview.redd.it/fn5i7b86o5da1.jpg?width=940&format=pjpg&auto=webp&v=enabled&s=9b5e9bc8abae6cbceeb5cae1cd569baa562fa4cf"
+            ]
+        }, {
+            "name": "Anton Kolomiets",
+            "age": null,
+            "locaion": "Bakhmut",
+            "death": "December 27",
+            "images": [
+                "https://imi.org.ua/upload/media/2022/12/25/63a87384993dd-screenshot-2022-12-25t175952-053.png"
+            ],
+            "biography": "From the first days of the full-scale war, he defended the motherland by joining the Ukrainian Armed Forces. Anton Kolomiets received a degree in television directing at Kherson State University. He worked at the Scythia TV channel, which later became the Kherson branch of the Public TV channel. For 6 years, he was a weather forecaster on the TV channel, giving Kherson residents a good mood every morning. He was also a director of live broadcasts"
+        }, {
+            "name": "Oleg Mudrak"
+        }
 	]
 }
