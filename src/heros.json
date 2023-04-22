@@ -64,9 +64,7 @@
 			"age": null,
 			"location": "Eastern Front",
 			"death": "Aprill 11",
-			"images": [
-				"https://preview.redd.it/s4jwb1v1knsa1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=678d83c2de78eb11c816b293a1c3bb89f622d956\""
-			]
+			"images": ["https://i.redd.it/s4jwb1v1knsa1.jpg"]
 		},
 		{
 			"name": "Andriy Boyko",
@@ -227,7 +225,7 @@
 		{
 			"name": "Nico from Sweden",
 			"age": null,
-			"location": "Donbass",
+			"location": "Donbas",
 			"death": "December 10",
 			"images": [
 				"https://preview.redd.it/r7mjp9ocak5a1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=cd7838378a9d1878318cfb286b3da85037f82f77",
@@ -236,67 +234,104 @@
 		},
 		{
 			"name": "Anton Sleba",
-            "age": null,
-            "death": "January 20",
-            "images": [
-                "location": "Bakhmut",
-                "https://i.redd.it/o5dmohv51rda1.jpg"
-            ]
-		}, {
-            "name": "Mykola Litvinov",
-            "age": 23,
-            "location": "January 20",
-            "death": "Bakhmut",
-            "images": [
-                "https://preview.redd.it/345rv6z7jtda1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=0c993c2f89d1bf6ee8d1e5b250f26639855248ec"
-            ]
-        },
-        {
-            "name": "Illya Hrabar",
-            "age": null,
-            "location": "Bakhmut",
-            "death": "December 26",
-            "images": [
-                "https://preview.redd.it/etnl2bihhr8a1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=4743d8c22b16d9fafa5088a15b7465e10e136f66",
-
-            ]
-        }, {
-            "name": "Pryshchep Denys",
-            "age" : 27,
-            "location": "Donestk",
-            "death": "January 17",
-            "images": [
-                "https://i.redd.it/hwt5hg0swuda1.jpg"
-            ]
-        }, {
-            "name": "Andriy Kosyak",
-            "age": null,
-            "location": "Bakhmut",
-            "death": "Jnuary 16",
-            "birthLocation": "Kharkiv",
-            "images": [
-                "https://preview.redd.it/fn5i7b86o5da1.jpg?width=940&format=pjpg&auto=webp&v=enabled&s=9b5e9bc8abae6cbceeb5cae1cd569baa562fa4cf"
-            ]
-        }, {
-            "name": "Taras Stakhiv",
-            "age": null,
-            "locaion": "Bakhmut",
-            "death": "January 16",
-            "birthLocation": "Ivano-Frankivsk",
-            "images": [
-                "https://preview.redd.it/fn5i7b86o5da1.jpg?width=940&format=pjpg&auto=webp&v=enabled&s=9b5e9bc8abae6cbceeb5cae1cd569baa562fa4cf"
-            ]
-        }, {
-            "name": "Anton Kolomiets",
-            "age": null,
-            "locaion": "Bakhmut",
-            "death": "December 27",
-            "images": [
-                "https://imi.org.ua/upload/media/2022/12/25/63a87384993dd-screenshot-2022-12-25t175952-053.png"
-            ],
-            "biography": "From the first days of the full-scale war, he defended the motherland by joining the Ukrainian Armed Forces. Anton Kolomiets received a degree in television directing at Kherson State University. He worked at the Scythia TV channel, which later became the Kherson branch of the Public TV channel. For 6 years, he was a weather forecaster on the TV channel, giving Kherson residents a good mood every morning. He was also a director of live broadcasts"
-        }, {
-            "name": "Oleg Mudrak"
-        }
+			"age": null,
+			"location": "Donbas",
+			"death": "January 20",
+			"images": ["https://i.redd.it/o5dmohv51rda1.jpg"]
+		},
+		{
+			"name": "Mykola Litvinov",
+			"age": 23,
+			"location": "January 20",
+			"death": "Bakhmut",
+			"images": [
+				"https://preview.redd.it/345rv6z7jtda1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=0c993c2f89d1bf6ee8d1e5b250f26639855248ec"
+			]
+		},
+		{
+			"name": "Illya Hrabar",
+			"age": null,
+			"location": "Bakhmut",
+			"death": "December 26",
+			"images": [
+				"https://preview.redd.it/etnl2bihhr8a1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=4743d8c22b16d9fafa5088a15b7465e10e136f66"
+			]
+		},
+		{
+			"name": "Pryshchep Denys",
+			"age": 27,
+			"location": "Donestk",
+			"death": "January 17",
+			"images": ["https://i.redd.it/hwt5hg0swuda1.jpg"]
+		},
+		{
+			"name": "Andriy Kosyak",
+			"age": null,
+			"location": "Bakhmut",
+			"death": "Jnuary 16",
+			"birthLocation": "Kharkiv",
+			"images": [
+				"https://preview.redd.it/fn5i7b86o5da1.jpg?width=940&format=pjpg&auto=webp&v=enabled&s=9b5e9bc8abae6cbceeb5cae1cd569baa562fa4cf"
+			]
+		},
+		{
+			"name": "Taras Stakhiv",
+			"age": null,
+			"locaion": "Bakhmut",
+			"death": "January 16",
+			"birthLocation": "Ivano-Frankivsk",
+			"images": [
+				"https://preview.redd.it/fn5i7b86o5da1.jpg?width=940&format=pjpg&auto=webp&v=enabled&s=9b5e9bc8abae6cbceeb5cae1cd569baa562fa4cf"
+			]
+		},
+		{
+			"name": "Anton Kolomiets",
+			"age": null,
+			"locaion": "Bakhmut",
+			"death": "December 27",
+			"images": [
+				"https://imi.org.ua/upload/media/2022/12/25/63a87384993dd-screenshot-2022-12-25t175952-053.png"
+			],
+			"biography": "From the first days of the full-scale war, he defended the motherland by joining the Ukrainian Armed Forces. Anton Kolomiets received a degree in television directing at Kherson State University. He worked at the Scythia TV channel, which later became the Kherson branch of the Public TV channel. For 6 years, he was a weather forecaster on the TV channel, giving Kherson residents a good mood every morning. He was also a director of live broadcasts"
+		},
+		{
+			"name": "Oleg Mudrak",
+			"age": 35,
+			"location": "Unkown",
+			"death": "Mid February",
+			"images": [
+				"https://preview.redd.it/yk5l6v1oxsja1.jpg?width=700&format=pjpg&auto=webp&v=enabled&s=3de6a2b3d1ab322b6250af3341e851b6ded3a4fe",
+				"https://preview.redd.it/in6zd6xnxsja1.jpg?width=320&crop=smart&auto=webp&v=enabled&s=6f8574ef57da2142f8727eded16a128bcc6304e2"
+			],
+			"biography": "defender of 'Azovstal', captain and commander of the 1st battalion of the 'Azov' regiment"
+		},
+		{
+			"name": "Roman Ivanenko",
+			"age": 28,
+			"location": "Vulhedar",
+			"death": "March 10",
+			"images": [
+				"https://pbs.twimg.com/media/FrGZUUfXsAAMdhj?format=jpg&name=medium",
+				"https://preview.redd.it/hvrgcmgb1mna1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=000ef0c864716c0492cbf42b785e25913cca6378"
+			],
+			"biography": "Ukrainian actor and showman Roman Ivanenko, who went joined the Ukrainian Army as a volunteer"
+		},
+		{
+			"name": "Anton Gevak",
+			"age": 27,
+			"location": "Mariupol",
+			"death": "March 5/ 22",
+			"images": [
+				"https://preview.redd.it/a3yjb2inwkn81.jpg?width=960&crop=smart&auto=webp&v=enabled&s=9fcee10915c2ee271961ae2d00f8042cc2b3dde8"
+			],
+			"biography": "Marine Anton Gevak died heroically in a battle with a tank column of Russian occupiers near Mariupol. He was the commander of the 140th separate reconnaissance battalion of the Marines of the Ukrainian Armed Forces and devoted the last 9 years of life to the Ukrainian army."
+		},
+		{
+			"name": "Anton Derbilov",
+			"age": null,
+			"location": "Kreminna, Luhansk",
+			"death": "April 6",
+			"images": ["https://gwaramedia.com/wp-content/uploads/2023/04/1-1-1.jpg"]
+		}
 	]
 }
