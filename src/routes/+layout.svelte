@@ -15,6 +15,7 @@
 			<a href="https://www.reddit.com/user/Ok-Ranger-8016">Ok-Ranger-8016</a>
 			<br />If you would like to submit info about a hero, please contact me on Reddit.
 		</p>
+		<a href="/privacy">Privacy Policy</a>
 	</footer>
 </div>
 

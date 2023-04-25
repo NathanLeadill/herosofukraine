@@ -332,6 +332,46 @@
 			"location": "Kreminna, Luhansk",
 			"death": "April 6",
 			"images": ["https://gwaramedia.com/wp-content/uploads/2023/04/1-1-1.jpg"]
+		},
+		{
+			"name": "Vorotnichenko Konstiantyn",
+			"age": 44,
+			"location": " Bakhmut",
+			"death": "April 24",
+			"images": [
+				"https://preview.redd.it/pwtvmrppguva1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=5c91f8e0230831fd7463dbb41ded1b0239bdcb50"
+			],
+			"biography": "KOSTYL, was a Unit Commander, like a father to his comrades."
+		},
+		{
+			"name": "Taras Chuchman",
+			"age": 40,
+			"location": "Maryinka, Donetsk",
+			"death": "April 4",
+			"images": [
+				"https://preview.redd.it/otho0os2f0va1.jpg?width=640&crop=smart&auto=webp&v=enabled&s=d008696a7c169bedb31a614626c84966ba300887",
+				"https://preview.redd.it/inab4ns2f0va1.jpg?width=660&format=pjpg&auto=webp&v=enabled&s=09fab4d57460b69f51340985628957013891b6ce"
+			],
+			"biography": "A fan of Lviv FC 'Karpaty', before the full-scale invasion, Taras worked as a developer in a Lviv IT company. He was 40 years old. He leaves behind three children and a wife."
+		},
+		{
+			"name": "Sergiy Fedik",
+			"age": null,
+			"location": "Bakhmut",
+			"death": "April 18",
+			"images": [
+				"https://image.cnbcfm.com/api/v1/image/107227051-1681829291526-gettyimages-1251945368-AA_18042023_1157873.jpeg?v=1681840650"
+			]
+		},
+		{
+			"name": "Andrii Vorobkal",
+			"age": 33,
+			"location": "Bakhmut",
+			"death": "April 4",
+			"images": [
+				"https://preview.redd.it/mp5rhjd95uua1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=2a7bc968d2f728a38a1a4afd51e9d184aa7c9b7e"
+			],
+			"biography": "A mortar man, and holder of a black belt in taekwondo. He was known as Greek to his friends and knew 5 languages."
 		}
 	]
 }
