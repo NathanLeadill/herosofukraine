@@ -372,6 +372,39 @@
 				"https://preview.redd.it/mp5rhjd95uua1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=2a7bc968d2f728a38a1a4afd51e9d184aa7c9b7e"
 			],
 			"biography": "A mortar man, and holder of a black belt in taekwondo. He was known as Greek to his friends and knew 5 languages."
+		},
+		{
+			"name": "Michał Żurek",
+			"age": 45,
+			"location": "Bakhmut",
+			"death": "April 10",
+			"images": [
+				"https://preview.redd.it/iw0f3ibjbxta1.jpg?width=821&format=pjpg&auto=webp&v=enabled&s=020835a1083e43ec2989024e1f4efc64a9fa56e3"
+			],
+			"biography": "Platoon commander of the International Legion"
+		},
+		{
+			"name": "Arsen Ketsbaia",
+			"age": null,
+			"location": "Bakhmut",
+			"death": "April 7",
+			"images": ["https://i.redd.it/nve1os8bvksa1.jpg"]
+		},
+		{
+			"name": "Oleksii Chybashev",
+			"age": 31,
+			"location": "Siverskodonetsk",
+			"death": "10 June 22",
+			"images": [
+				"https://imi.org.ua/upload/news/2022/06/11/62a437ef8cdb8-1-jpg_700x350.png?v=1655736138",
+				"https://euroweeklynews.com/wp-content/uploads/2022/06/oleksiy-chubashev-ukrainian-war-correspondent.jpeg",
+				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEqKSfC9isJOrQ48DZS7Sf_lURI9qivw-g2A&usqp=CAU"
+			],
+			"biography": "He was a Ukrainian war correspondent, author and host of the \"Recruit.UA\" military program. Lyosha is survived by his wife and his little daughter and son born in March.",
+			"link": {
+				"name": "Petition Hero of Ukraine",
+				"url": "https://petition.president.gov.ua/petition/145676?fbclid=IwAR3kRa5ANuIpOUUi9FtXKUoIzA6vbAkF2ikdSX9J_tu_lJQR9LNuh3ptuzg"
+			}
 		}
 	]
 }

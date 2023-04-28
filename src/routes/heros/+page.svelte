@@ -17,6 +17,7 @@
 				<th>Age</th>
 				<th>Location</th>
 				<th>Death</th>
+				<td>Links</td>
 				<th>Details</th>
 			</tr>
 		</thead>
@@ -30,6 +31,13 @@
 					<td>{hero.age}</td>
 					<td>{hero.location}</td>
 					<td>{hero.death}</td>
+					<td>
+						{#if hero.link}
+							<a href={hero.link.url}>{hero.link.name}</a>
+						{:else}
+							<p>No link</p>
+						{/if}
+					</td>
 					<td>
 						<a href="/details">Details</a>
 					</td>
