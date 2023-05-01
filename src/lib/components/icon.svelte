@@ -8,17 +8,6 @@
   
   $: console.log('# color :', color)
   
-  // let internalColor = color;
-  // const updateInternalValue = () => {
-  //   internalColor = color;
-  // };
-  // onMount(() => {
-  //   updateInternalValue();
-  // });
-  // onDestroy(() => {
-  //   internalColor = '';
-  // });
-  
   let defaultStyle = `fill: var(${color});`
   let styled = `${defaultStyle + ' ' + style}`
 </script>
