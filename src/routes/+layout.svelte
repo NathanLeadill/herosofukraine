@@ -34,7 +34,13 @@
 		width: 100%;
 		max-width: 85%;
 		margin: 0 auto;
+		margin-top: 126px;
 		box-sizing: border-box;
+	}
+	@media (min-width: 600px) {
+		main {
+			margin-top: 126px;
+		}
 	}
 
 	footer {
