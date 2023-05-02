@@ -11,11 +11,13 @@
 
 	<footer>
 		<p>
-			Copyright © 2023 <br /> Developed and Managed by
+			Copyright © 2023 
+			<!-- <br /> 
+			Developed and Managed by
 			<a href="https://www.reddit.com/user/Ok-Ranger-8016">Ok-Ranger-8016</a>
-			<br />If you would like to submit info about a hero, please contact me on Reddit.
+			<br />If you would like to submit info about a hero, please contact me on Reddit. -->
 		</p>
-		<a href="/privacy">Privacy Policy</a>
+		<a class="privacy" href="/privacy">Privacy Policy</a>
 	</footer>
 </div>
 
@@ -30,11 +32,10 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
+		padding: 12px 28px;
 		width: 100%;
-		max-width: 85%;
 		margin: 0 auto;
-		margin-top: 126px;
+		margin-top: 121px;
 		box-sizing: border-box;
 	}
 	@media (min-width: 600px) {
@@ -44,11 +45,12 @@
 	}
 
 	footer {
+		align-items: center;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
 		padding: 12px;
+		margin-bottom: 36px;
 	}
 	footer p {
 		text-align: center;
@@ -61,5 +63,12 @@
 		footer {
 			padding: 12px 0;
 		}
+	}
+
+	.privacy {
+		color: var(--dark);
+		font-size: 12px;
+		font-weight: 400;
+		text-decoration: none;
 	}
 </style>

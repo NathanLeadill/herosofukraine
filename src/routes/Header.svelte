@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from '$lib/images/logo-yellow.png';
+	import logo from '$lib/images/logo-y.png';
 	import Icon from '$components/icon.svelte';
 
 	$: currentPage = $page.url.pathname;
@@ -55,17 +55,17 @@
 			</span>
 		</a>
 		<a 
-			href="/user" 
-			class:active={currentPage === "/user"}
+			href="/profile" 
+			class:active={currentPage === "/profile"}
 			class="icon-container"
 		>
 			<Icon 
 				name="user" 
-				color={currentPage === "/user" ? "--accent" : "--secondary-light"} 
+				color={currentPage === "/profile" ? "--accent" : "--secondary-light"} 
 				style={"width: 24px; padding-top: 8px;"}
 			/>
 			<span class="icon-subtext">
-				User
+				Profile
 			</span>
 		</a>
 	</div>
@@ -89,10 +89,9 @@
 	
 	.nav {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		margin: 0 auto;
 		margin-top: 6px;
-		max-width: 85%;
 		width: 100%;
 	}
 
@@ -112,7 +111,7 @@
 		color: var(--secondary-light);
 		display: flex;
 		flex-direction: column;
-		padding-bottom: 10px;
+		padding-bottom: 8px;
 		position: relative;
 		text-decoration: none;
 		width: 24px;
@@ -127,13 +126,13 @@
 		content: "";
 		display: block;
 		position: absolute;
-		width: 250%;
+		width: 20vw;
 		height: 100%;
 		z-index: -1;
 	}
 
 	.icon-subtext {
-		font-size: 12px;
+		font-size: 10px;
 		font-weight: 400;
 		margin-top: 2px;
 		text-align: center;

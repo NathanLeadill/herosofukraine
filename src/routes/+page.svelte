@@ -1,16 +1,19 @@
 <script lang="ts">
+	import Curtain from "$components/curtain.svelte";
+
 </script>
 
 <svelte:head>
-	<title>Heroes of Ukraine - A place to remember fallen heros</title>
+	<!-- <title>Heroes of Ukraine - A place to remember fallen heros</title> -->
+	<title>Heroiam Slava - News Map</title>
 	<meta
 		name="description"
 		content="Slava Ukraini, Heroiam Slava. Welcome to heroiamslava, and open source project to help record the fallen heroes of Ukraine, lest they be forgotten like wars before current events. The heros of Ukraine deserve recognition, they deserve respect and most of all, I believe it is our duty, as the living member of a free and democratic society, to ensure that the memories of those that died defending freedom, will never be forgotten"
 	/>
 </svelte:head>
 <section>
-	<h1 class="title">Slava Ukraini. Heroiam Slava</h1>
-	<p class="intro">
+	<h1 class="title">Live AI-powered News.</h1>
+	<!-- <p class="intro">
 		Welcome to <i>heroiamslava.co.uk</i>, a project created by Nathan (also known as Ok-Ranger). Our
 		aim is to provide a lasting tribute to the brave Ukrainian soldiers who have lost their lives in
 		the conflict. We understand that the current way of sharing news of these fallen heroes on
@@ -32,32 +35,20 @@
 		We are considering adding a section of this website dedicated to innocent Ukrainian civilians who
 		have lost their lives in the conflict. If you have any thoughts or suggestions on this, please contact
 		me on Reddit
-	</p>
+	</p> -->
 </section>
-
-<section />
+	
+<Curtain />
 
 <style>
 	section {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 		flex: 0.6;
 	}
 	.title {
 		font-family: 'Poppins';
+		font-size: 26px;
 		font-weight: 700;
-	}
-	.intro {
-		font-family: 'Poppins';
-		font-weight: 400;
-		font-size: 1.25rem;
-	}
-	br {
-		display: block;
-		margin: 10px 0;
-		line-height: 22px; /* Safari */
-		content: ' '; /* Chrome */
 	}
 </style>

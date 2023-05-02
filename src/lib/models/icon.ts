@@ -2,7 +2,8 @@ type IconType =
   "globe" | 
   "image" |
   "rose" |
-  "user"
+  "user" |
+  "chevron-up"
 ;
 
 export type { IconType };
