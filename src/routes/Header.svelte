@@ -1,73 +1,22 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
-	import logo from '$lib/images/logo-y.png';
-	import Icon from '$components/icon.svelte';
+	import NavItem from '$components/NavItem.svelte';
 
 	$: currentPage = $page.url.pathname;
-	$: console.log('# currentPage :', currentPage)
+	$: console.log('# currentPage :', currentPage);
 </script>
 
+<p>page</p>
 <header>
 	<a class="logo-container" href="/">
-		Heroiam <img class="logo" src={logo} alt="logo"/> Slava
+		Heroiam Slava
+		<!-- <img class="logo" src={logo} alt="logo" /> Slava -->
 	</a>
 	<div class="nav">
-		<a 
-			href="/"
-			class:active={currentPage === "/"}
-			class="icon-container"
-		>
-			<Icon 
-				name="globe" 
-				color={currentPage === "/" ? "--accent" : "--secondary-light"} 
-				style={"width: 24px; padding-top: 8px;"} 
-			/>
-			<span class="icon-subtext">
-				News
-			</span>
-		</a>
-		<a 
-			href="/media" 
-			class:active={currentPage === "/media"}
-			class="icon-container"
-		>
-			<Icon 
-				name="image" 
-				color={currentPage === "/media" ? "--accent" : "--secondary-light"} 
-				style={"width: 24px; padding-top: 8px;"}
-			/>
-			<span class="icon-subtext">
-				Media
-			</span>
-		</a>
-		<a 
-			href="/memorial" 
-			class:active={currentPage === "/memorial"}
-			class="icon-container"
-		>
-			<Icon 
-				name="rose" 
-				color={currentPage === "/memorial" ? "--accent" : "--secondary-light"} 
-				style={"width: 24px; padding-top: 8px;"}
-			/>
-			<span class="icon-subtext">
-				Memorial
-			</span>
-		</a>
-		<a 
-			href="/profile" 
-			class:active={currentPage === "/profile"}
-			class="icon-container"
-		>
-			<Icon 
-				name="user" 
-				color={currentPage === "/profile" ? "--accent" : "--secondary-light"} 
-				style={"width: 24px; padding-top: 8px;"}
-			/>
-			<span class="icon-subtext">
-				Profile
-			</span>
-		</a>
+		<NavItem pageName="" label={'Home'} />
+		<NavItem pageName="media" label={'Media'} />
+		<NavItem pageName="memorial" label={'Memorial'} />
+		<NavItem pageName="profile" label={'Profile'} />
 	</div>
 	<!-- <p>Слава Україні. Героям слава!</p> -->
 </header>
@@ -86,7 +35,7 @@
 		top: 0;
 		z-index: 100;
 	}
-	
+
 	.nav {
 		display: flex;
 		justify-content: space-around;
@@ -105,7 +54,7 @@
 		margin: 0 auto;
 		text-decoration: none;
 	}
-	
+
 	.icon-container {
 		align-items: center;
 		color: var(--secondary-light);
@@ -116,14 +65,11 @@
 		text-decoration: none;
 		width: 24px;
 	}
-	
-	.active {
-		color: var(--accent);
-	}
+
 	.active:before {
 		background-color: var(--primary-light);
 		border-radius: 10px 10px 0 0;
-		content: "";
+		content: '';
 		display: block;
 		position: absolute;
 		width: 20vw;
@@ -137,13 +83,20 @@
 		margin-top: 2px;
 		text-align: center;
 	}
-	
+
+	:global(.icon-container.active svg) {
+		fill: var(--accent);
+	}
+	:global(.icon-container:not(.active) svg) {
+		fill: var(--secondary-light);
+	}
+
 	@media (min-width: 600px) {
 		.logo-container {
 			margin: 0 20px;
 		}
 	}
-	
+
 	.logo {
 		display: inline;
 		height: 42px;
