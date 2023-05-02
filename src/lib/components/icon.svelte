@@ -1,7 +1,7 @@
 <script lang='ts'>
 	import type { IconType } from "$models/icon";
   import { onMount, onDestroy } from 'svelte';
-
+  
   export let name: IconType;
   export let color = '--secondary';
   export let style = '';
