@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Curtain from "$components/curtain.svelte";
+	import Map from "$components/map.svelte";
 
 </script>
 
@@ -12,7 +13,9 @@
 	/>
 </svelte:head>
 <section>
-	<h1 class="title">Live AI-powered News.</h1>
+	<!-- <div class="content-container">
+		<h1 class="title">Live AI-powered News.</h1>
+	</div> -->
 	<!-- <p class="intro">
 		Welcome to <i>heroiamslava.co.uk</i>, a project created by Nathan (also known as Ok-Ranger). Our
 		aim is to provide a lasting tribute to the brave Ukrainian soldiers who have lost their lives in
@@ -36,8 +39,10 @@
 		have lost their lives in the conflict. If you have any thoughts or suggestions on this, please contact
 		me on Reddit
 	</p> -->
+	<Map />
 </section>
 	
+
 <Curtain />
 
 <style>
@@ -45,6 +50,11 @@
 		display: flex;
 		flex-direction: column;
 		flex: 0.6;
+	}
+	.content-container {
+		background: var(--primary-light);
+		padding: 16px 24px;
+		z-index: 2;
 	}
 	.title {
 		font-family: 'Poppins';

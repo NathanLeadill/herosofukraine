@@ -6,7 +6,6 @@
 	$: console.log('# currentPage :', currentPage);
 </script>
 
-<p>page</p>
 <header>
 	<a class="logo-container" href="/">
 		Heroiam Slava

@@ -1,34 +1,28 @@
 <script lang='ts'>
+	import { curtainState } from "$lib/stores";
 	import Button from "./button.svelte";
 	import Icon from "./icon.svelte";
   
-  let curtainActive = false;
+  // Subscribe to updates in the store's state
+  let curtainOpen;
+  curtainState.subscribe(value => {
+    curtainOpen = value;
+  });
   
-</script>
+  function toggleCurtain() {
+    curtainState.toggle();
+  }
 
-<!-- <div class="container">
-  <div class="opener">
-    <Button 
-      invisible 
-      iconOnly 
-      noHover
-      on:click={() => toggleActive()}
-      style={"width: 100%; display: flex; justify-content: center; align-items: center; border: none; height: 36px;"}
-    >
-      <div slot="icon" class="icon">
-        <Icon name="chevron-up" color={"--accent"}/>
-      </div>
-    </Button>
-  </div>
-  <slot />
-</div> -->
+  $: console.log('# curtainOpen :', curtainOpen)
+
+</script>
 
 <div 
   class="open-window-btn"
-  class:curtainActive
+  class:curtainActive={$curtainState}
 >
   <Button
-    on:click={() => {curtainActive = true;}}
+    on:click={toggleCurtain}
     style="
       color: var(--primary);
       border-radius: 0px;
@@ -44,7 +38,6 @@
         invisible
         iconOnly
         noHover
-        class="curtain-button"
         style="
           align-items: center;
           display: flex;
@@ -52,7 +45,7 @@
           justify-content: center;
           width: 100%;
         "
-        on:click={() => {curtainActive = false;}}
+        on:click={toggleCurtain}
       >
         <Icon 
           slot="icon" 
