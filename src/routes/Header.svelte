@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import NavItem from '$components/NavItem.svelte';
-
+	import logo from "../lib/images/logo-y.png";
+	
 	$: currentPage = $page.url.pathname;
 	$: console.log('# currentPage :', currentPage);
 </script>
 
 <header>
 	<a class="logo-container" href="/">
-		Heroiam Slava
-		<!-- <img class="logo" src={logo} alt="logo" /> Slava -->
+		Heroiam
+		<img class="logo" src={logo} alt="logo" /> Slava
 	</a>
 	<div class="nav">
 		<NavItem pageName="" label={'Home'} />
