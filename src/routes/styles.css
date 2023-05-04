@@ -1,5 +1,7 @@
 :root {
 	--accent: #ffcc00;
+  --accent-hover: #e7b900;
+  --accent-click: #cda400;
   --accent-light: #3f3200;
 	--primary: #151614;
 	--primary-light: #24252c;
@@ -20,6 +22,42 @@
 /* 801 */
 /* 1025 */
 /* 1281 */
+
+/* MAP */
+.popup-title {
+  padding-bottom: 26px;
+}
+.btn-view-report {
+  background-color: var(--accent);
+  border: none;
+  border-radius: 0 0 10px 10px;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 16px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-decoration: none;
+  transition: all ease .2s;
+  width: 100%;
+}
+.btn-view-report:hover,
+.btn-view-report:focus {
+  background-color: var(--accent-hover);
+  transition: all ease .2s;
+}
+.btn-view-report:active {
+  background-color: var(--accent-click);
+  transition: all ease .2s;
+}
+
+.leaflet-popup-tip-container {
+  display: none;
+}
+
 
 /* CSS RESET */
 

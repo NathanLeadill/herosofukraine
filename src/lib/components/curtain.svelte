@@ -32,7 +32,6 @@
     View News
   </Button>
   <div class="curtain">
-    <div class="curtain-top-line" />
     <div class="close-btn-container">
       <Button
         invisible
@@ -117,12 +116,6 @@
 	.curtainActive .curtain {
 		height: calc(100vh - 121px);
 		transition-delay: 0s;
-	}
-	.curtain-top-line {
-		background: var(--primary-light);
-		border-bottom-left-radius: var(--max-radius);
-		border-bottom-right-radius: var(--max-radius);
-		height: 6px;
 	}
 	.close-btn-container {
 		display: flex;

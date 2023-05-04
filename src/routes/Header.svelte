@@ -39,8 +39,7 @@
 	.nav {
 		display: flex;
 		justify-content: space-around;
-		margin: 0 auto;
-		margin-top: 6px;
+		margin: 4px auto 0;
 		width: 100%;
 	}
 
@@ -53,35 +52,6 @@
 		font-size: 32px;
 		margin: 0 auto;
 		text-decoration: none;
-	}
-
-	.icon-container {
-		align-items: center;
-		color: var(--secondary-light);
-		display: flex;
-		flex-direction: column;
-		padding-bottom: 8px;
-		position: relative;
-		text-decoration: none;
-		width: 24px;
-	}
-
-	.active:before {
-		background-color: var(--primary-light);
-		border-radius: 10px 10px 0 0;
-		content: '';
-		display: block;
-		position: absolute;
-		width: 20vw;
-		height: 100%;
-		z-index: -1;
-	}
-
-	.icon-subtext {
-		font-size: 10px;
-		font-weight: 400;
-		margin-top: 2px;
-		text-align: center;
 	}
 
 	:global(.icon-container.active svg) {

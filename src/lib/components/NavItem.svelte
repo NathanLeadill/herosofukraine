@@ -32,15 +32,15 @@
 
 	.active:before {
 		background-color: var(--primary-light);
-		border-radius: 10px 10px 0 0;
+		border-radius: 8px 8px 0 0;
 		content: '';
 		display: block;
-		position: absolute;
-		width: 20vw;
 		height: 100%;
+		position: absolute;
+		width: 18vw;
 		z-index: -1;
 	}
-
+	
 	.icon-container:hover :global(svg) {
 		fill: var(--accent);
 	}
