@@ -1,9 +1,10 @@
 <script lang="ts">
+  import { ReportType } from '$models/report';
   import { browser } from '$app/environment';
 	import { curtainState } from '$lib/stores';
   import type { Map } from 'leaflet';
   import { onDestroy, onMount } from 'svelte';
-
+  
   let mapElement: HTMLElement | null;
   let map: Map;
   
@@ -20,21 +21,21 @@
     }
   };
   
-  // Subscribe to updates in the store's state
+  // Subscribe to curtain state in the store
   let curtainOpen;
   curtainState.subscribe(value => {
     curtainOpen = value;
   });
   
-  function toggleCurtain(report) {
-    curtainState.toggle(report);
+  function toggleCurtain() {
+    curtainState.toggle();
   }
   
   onMount(async () => {
     if (browser) {
-      // Dynamically import leaflet
+      // Dynamically import leaflet to avoid SSR issues
       const leaflet = await import('leaflet');
-
+      
       // Check map element
       mapElement = document.getElementById('map');
       if (!mapElement) {
@@ -42,7 +43,7 @@
           return;
       }
       
-      // Create map (centered on the last report location)
+      // Create map
       const lastReportLocation = locations[Object.keys(locations)[0] as keyof typeof locations];
       const mapOptions = {
         center: lastReportLocation.latlng,
@@ -50,9 +51,8 @@
         locale: 'en'
       }
       map = leaflet.map(mapElement, mapOptions)
-        // .setView(lastReportLocation.latlng, 5);
       
-      // Load openstreetmap tiles
+      // Load openstreetmap tiles & add to map
       leaflet.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://carto.com/">carto.com</a>'

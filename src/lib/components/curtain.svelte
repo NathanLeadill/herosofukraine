@@ -1,20 +1,25 @@
 <script lang='ts'>
-	import { curtainState } from "$lib/stores";
+	import { curtainState, reportState } from "$lib/stores";
+	import type { ReportType } from "$models/report";
 	import Button from "./button.svelte";
 	import Icon from "./icon.svelte";
   
-  // Subscribe to updates in the store's state
-  let curtainOpen;
-  curtainState.subscribe(value => {
-    curtainOpen = value;
+  // Subscribe to updates in the stores states
+  let curtainOpen: boolean;
+  curtainState.subscribe(state => {
+    curtainOpen = state;
+  });
+  
+  let selectedReport: ReportType | null;
+  reportState.subscribe(state => {
+    console.log(state);
+    selectedReport = state.selectedReport;
   });
   
   function toggleCurtain() {
     curtainState.toggle();
   }
-
-  $: console.log('# curtainOpen :', curtainOpen)
-
+  
 </script>
 
 <div 
