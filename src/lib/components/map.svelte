@@ -1,25 +1,17 @@
 <script lang="ts">
-  import { ReportType } from '$models/report';
+  import type { ReportType } from '$models/report';
+  import { reportState } from '$lib/stores';
   import { browser } from '$app/environment';
 	import { curtainState } from '$lib/stores';
   import type { Map } from 'leaflet';
   import { onDestroy, onMount } from 'svelte';
+	import { reports } from '$lib/objects/dummyData';
+	import { mainActiveReport } from '$lib/helpers';
   
+  // Map variables
   let mapElement: HTMLElement | null;
   let map: Map;
   
-  const locations = {
-    report1: {
-      title: 'Ukraine war continues into another day with no resolution in sight',
-      latlng: [51, 36],
-      description: '3 tanks were destroyed this saturday during the conflict between the Ukrainian army and the Russian army.'
-    },
-    report2: {
-      title: 'Intense Fighting Erupts in Eastern Ukraine as Russian-Backed Separatists Launch Major Offensive',
-      latlng: [49.9, 39.2],
-      description: 'A civilian was killed during the conflict between the Ukrainian army and the Russian army.'
-    }
-  };
   
   // Subscribe to curtain state in the store
   let curtainOpen;
@@ -44,9 +36,9 @@
       }
       
       // Create map
-      const lastReportLocation = locations[Object.keys(locations)[0] as keyof typeof locations];
+      const lastReportLocation = reports[Object.keys(reports)[0] as keyof typeof reports];
       const mapOptions = {
-        center: lastReportLocation.latlng,
+        center: lastReportLocation.location,
         zoom: 5,
         locale: 'en'
       }
@@ -59,8 +51,8 @@
       }).addTo(map);
       
       // Add markers for each location
-      for (const key in locations) {
-        const location = locations[key];
+      for (const key in reports) {
+        const report = reports[key];
         
         // Create a button within the popups to open the curtain
         const button = leaflet.DomUtil.create('button', 'btn-view-report');
@@ -68,11 +60,21 @@
         button.addEventListener('click', toggleCurtain);
         
         // Create markers
-        const marker = leaflet.marker(location.latlng)
+        const marker = leaflet.marker(
+          report.location,
+          // {
+          //   icon: leaflet.icon({
+          //     iconUrl: '/images/marker.svg',
+          //     iconSize: [30, 30],
+          //     iconAnchor: [15, 30],
+          //     popupAnchor: [0, -30],
+          //   }),
+          // },
+        )
           .addTo(map)
           // Create marker popups
           .bindPopup(
-            leaflet.popup().setContent(`<h3 class="popup-title">${location.title} </h3>`),
+            leaflet.popup().setContent(`<h3 class="popup-title">${report.title} </h3>`),
             { 
               closeButton: false, 
               maxWidth: 200,
@@ -88,6 +90,13 @@
         // Add an event listener to open the popup when the marker is clicked
         marker.on('click', () => {
           marker.openPopup();
+          reportState.setSelectedReport(report);
+        });
+
+        // Event to clear the selected report when the map is clicked
+        // NOTE: Could be improved by detecting if any popup is open but couldn't find a way to do it in a clean way
+        map.on('click', function(e) {
+          mainActiveReport && reportState.setSelectedReport(mainActiveReport);
         });
       }
         

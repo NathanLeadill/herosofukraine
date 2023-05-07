@@ -1,5 +1,7 @@
 <script lang='ts'>
-	import { curtainState, reportState } from "$lib/stores";
+	import { timeSinceUpdate } from "$lib/helpers";
+  import { curtainState, reportState } from "$lib/stores";
+	import { reports } from '$lib/objects/dummyData';
 	import type { ReportType } from "$models/report";
 	import Button from "./button.svelte";
 	import Icon from "./icon.svelte";
@@ -9,16 +11,21 @@
   curtainState.subscribe(state => {
     curtainOpen = state;
   });
-  
-  let selectedReport: ReportType | null;
+  let selectedReport: ReportType | undefined;
   reportState.subscribe(state => {
-    console.log(state);
     selectedReport = state.selectedReport;
   });
   
+  // Toggle curtain state
   function toggleCurtain() {
     curtainState.toggle();
   }
+  
+  // Filter out the report that is currently being viewed
+  $: excludedReportId = selectedReport?.id;
+  $: suggestedReports = Object.keys(reports)
+    .filter(key => reports[key].id !== excludedReportId)
+    .map(key => reports[key]);
   
 </script>
 
@@ -34,7 +41,11 @@
       font-weight: 500;
     "
   >
-    View News
+    {#if selectedReport && selectedReport?.type === 'secondary'}
+      Open selected
+    {:else}
+      View Summary
+    {/if}
   </Button>
   <div class="curtain">
     <div class="close-btn-container">
@@ -55,6 +66,7 @@
           slot="icon" 
           name="chevron-up"
           style="
+            fill: var(--accent);
             height: 32px;
             transform: rotate(180deg); 
             width: 32px;
@@ -62,42 +74,100 @@
         />
       </Button>
     </div>
-    <div class="add-leave-body">
-      <h2>
-        Ukraine war continues into another day with no resolution in sight
-      </h2>
-      <div class="content">
-        <p>
-          International efforts to broker a lasting peace agreement have so far been unsuccessful. The United States and European Union have imposed sanctions on Russia over its involvement in the conflict, while Ukraine has sought to strengthen its military capabilities with support from NATO.
-        </p>
-      </div>
+    <div class="curtain-body">
+      {#if selectedReport}
+        <h2 class="title">
+          {selectedReport.title}
+        </h2>
+        <div class="report-info">
+          <p class="date">
+            {timeSinceUpdate(new Date(selectedReport.date))}
+          </p>
+          <p class="status">
+            {#if selectedReport.status === "active"}
+              <span class="label">
+                Active
+              </span>
+              <span class="tooltip">This report is being updated in real time.</span>
+              <span class="status-dot"/>
+            {:else}
+              <span class="label">
+                Archived
+              </span>
+              <span class="tooltip">This report is no longer being updated.</span>
+            {/if}
+          </p>
+        </div>
+        <div class="images">
+          {#if selectedReport.images}
+            <!-- If single image -->
+            {#if selectedReport.images.length === 1}
+              <img alt="" class="image" src={selectedReport.images[0].url} />
+              <span class="caption">
+                {selectedReport.images[0].caption}
+              </span>
+              <!-- If multiple images -->
+              {:else if selectedReport.images.length > 1}
+                <div class="image-container">
+                  {#each selectedReport.images as image}
+                    <img class="image" alt="" src={image.url} />
+                    <span class="caption">
+                      {image.caption}
+                    </span>
+                  {/each}
+                </div>
+              <!-- If no image -->
+              {:else}
+              <div class="image-placeholder">
+                <img alt="" src="https://via.placeholder.com/150" />  
+              </div>
+            {/if}
+          {/if}
+        </div>
+        <div class="content">
+          <p class="description">
+            <span class="first-letter">
+              {selectedReport.description.charAt(0)}
+            </span>
+            {selectedReport.description.slice(1)}
+          </p>
+        </div>
+        <!-- LIVE FEED -->
+        <div class="reports-feed">
+          <div class="reports-feed-separator" />
+          {#each suggestedReports as report}
+            <div class="report-feed-card">
+              <div class="top-side">
+                <div class="card-title-container">
+                  <Icon 
+                    name="rose"
+                    style="
+                      fill: var(--accent);
+                      height: 16px;
+                      width: 16px;
+                    "
+                  />
+                  <h4 class="card-title">
+                    {report.title}
+                  </h4>
+                </div>
+              </div>
+              <p class="card-date">
+                {timeSinceUpdate(new Date(report.date))}
+              </p>
+            </div>
+          {/each}
+        </div>
+      {:else}
+        <h2>
+          Error: No report selected - Please reload the page and contact support if the problem persists.
+        </h2>
+      {/if}
     </div>
   </div>
 </div>
 
 <style>
-  /* .container {
-    background: var(--primary);
-    border-radius: 10px 10px 0 0;
-    bottom: 0;
-    box-shadow: 0 0 10px var(--primary);
-    color: var(--secondary);
-    left: 0;
-    padding: 0 36px;
-    position: fixed;
-    right: 0;
-    width: 100%;
-    z-index: 2;
-  }
-  .opener {
-    justify-content: center;
-    display: flex;
-    width: 100%;
-  }
-  .icon {
-    height: 26px;
-    width: 26px;
-  } */
   .open-window-btn {
 		bottom: 0%;
 		height: 46px;
@@ -115,7 +185,8 @@
 	.curtain {
 		background: var(--primary);
 		height: 0;
-		overflow: hidden;
+    overflow: hidden;
+    position: relative;
 		transition-delay: .2s;
 	}
 	.curtainActive .curtain {
@@ -123,16 +194,171 @@
 		transition-delay: 0s;
 	}
 	.close-btn-container {
+    background: linear-gradient(to bottom, rgba(21, 22, 20, 1), rgba(21, 22, 20, 0));
 		display: flex;
 		padding: 4px 0;
 		justify-content: center;
+    position: absolute;
+    opacity: 0.9;
 		width: 100%;
 	}
-	.add-leave-body {
-		padding: 16px;
+	.curtain-body {
+    height: calc(100vh - 121px);
+    padding: 42px 16px 16px;
+    overflow: auto;
 	}
+  
+  .title {
+    color: var(--secondary);
+    font-size: 24px;
+    margin: 0;
+  }
 
-  .content {
-    padding: 16px 0;
+  /* REPORT INFO */
+  .report-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  .date {
+    color: var(--secondary-light);
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  .status {
+    align-items: center;
+    color: var(--secondary-light);
+    cursor: help;
+    display: flex;
+    font-size: 14px;
+    margin: 10px 0;
+    position: relative;
+  }
+  .status .label {
+    border-bottom: 1px dotted var(--secondary);
+    border-width: 2px;
+    margin-right: 8px;
+    padding: 0 2px;
+  }
+  .tooltip {
+    background-color: #555;
+    bottom: 100%;
+    border-radius: 6px;
+    box-shadow: 0 0 10px var(--primary);
+    color: #fff;
+    margin-left: -75px;
+    opacity: 0;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    transition: opacity 0.3s;
+    visibility: hidden;
+    width: 150px;
+    z-index: 1;
+  }
+  .status:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+  .status-dot {
+    animation: pulse 1s ease-in-out infinite alternate;
+    background-color: var(--success);
+    border-radius: 50%;
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+  }
+
+  .images {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  .caption {
+    background: #000000a9;
+    bottom: 0;
+    color: var(--secondary-light);
+    display: block;
+    font-size: 12px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+  .content p {
+    margin: 10px 0;
+  }
+  .description {
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 8px 0;
+  }
+  .first-letter {
+    float: left;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1;
+    margin-right: 8px;
+    text-transform: uppercase;
+  }
+
+  /* LIVE FEED */
+  .reports-feed {
+    border-top: 2px solid var(--primary-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding-top: 28px;
+  }
+  .reports-feed-separator {
+    position: relative;
+  }
+  .reports-feed-separator:before {
+    background: var(--primary);
+    color: var(--secondary-light);
+    content: "Live Feed";
+    font-size: 12px;
+    font-weight: 500;
+    left: 50%;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding: 0 8px;
+    position: absolute;
+    text-transform: uppercase;
+    top: -38px;
+    transform: translateX(-50%);
+  }
+  .report-feed-card {
+    background-color: var(--primary-light);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    margin: 8px 0;
+  }
+  .top-side {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card-title-container {
+    display: flex;
+  }
+  .card-title {
+    color: var(--secondary);
+    font-size: 14px;
+    margin: 0 8px;
+  }
+  .card-date {
+    color: var(--secondary-light);
+    font-size: 12px;
+    margin: 0;
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.5);
+    }
   }
 </style>

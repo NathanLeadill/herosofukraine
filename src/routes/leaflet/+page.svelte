@@ -6,7 +6,7 @@
 		let latlng = [0, 0];
 		// 1st arg is tile server url
 		// 2nd arg is zoom level
-		var mymap = L.map('map').setView(latlng, 2);
+		var mymap = L.map('map').setView(location, 2);
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 18,
 			attribution:

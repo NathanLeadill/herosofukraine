@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { iconNames } from '$lib/obects/icons';
+	import { iconNames } from '$lib/objects/icons';
 	import type { IconType } from '$models/icon';
 	import Icon from './icon.svelte';
 	export let label: string;

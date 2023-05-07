@@ -1,4 +1,5 @@
 import type { RequestEvent } from '../routes/api/fetch-heros/$types';
+import { reports } from './objects/dummyData';
 
 export function jsonResponse<T>(data: T, status = 200): Response {
 	return new Response(JSON.stringify(data), {
@@ -14,3 +15,45 @@ export async function jsonRequest<T>(request: RequestEvent): Promise<T> {
 		throw 'Invalid JSON body';
 	}
 }
+
+// Get the time since the last update
+export function timeSinceUpdate(lastUpdated: Date) {
+	// Format date
+  const dateFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  };
+	const formatter = new Intl.DateTimeFormat('en-US', dateFormatOptions);
+  // const timeZoneName = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	
+	// Get the current date
+	const now = new Date();
+	
+	// Compute the difference between the two dates in milliseconds
+	const diffMillis = now.getTime() - lastUpdated.getTime();
+	
+	// Convert the difference to minutes or hours
+	const diffSeconds = Math.floor(diffMillis / 1000);
+	const diffMinutes = Math.floor(diffMillis / (1000 * 60));
+	const diffHours = Math.floor(diffMillis / (1000 * 60 * 60));
+	
+	// Display the result
+	if (diffHours > 0 && diffHours < 24) {
+		return `Updated ${diffHours} hours ago`
+	} else if (diffMinutes > 0 && diffMinutes < 60) {
+		return `Updated ${diffMinutes} minutes ago`
+	} else if (diffSeconds > 0 && diffSeconds < 60) {
+		return `Updated ${diffSeconds} seconds ago`
+	} else {
+		// return `Updated ${formatter.format(lastUpdated)} (${timeZoneName})`
+		return `${formatter.format(lastUpdated)}`
+	}
+}
+
+// Get the main active report
+export const mainActiveReport = Object.values(reports).find(
+  report => report.type === 'main' && report.status === 'active'
+);
