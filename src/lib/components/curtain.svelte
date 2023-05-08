@@ -98,9 +98,25 @@
     </div>
     <div class="curtain-body">
       {#if selectedReport}
-        <h2 class="title">
-          {selectedReport.title}
-        </h2>
+        <div class="title-container">
+          <h2 class="title">
+            {selectedReport.title}
+          </h2>
+          <div class="report-icon">
+            <Icon 
+              name={selectedReport.icon}
+              style="
+                height: 175%;
+                fill: var(--primary-light);
+                position: absolute;
+                right: 0;
+                width: 50%;
+                top: -50%;
+                transform: rotate(-20deg);
+              "
+            />
+          </div>
+        </div>
         <div class="report-info">
           <p class="date">
             {timeSinceUpdate(new Date(selectedReport.date))}
@@ -258,10 +274,20 @@
     overflow: auto;
 	}
   
+  .title-container {
+    position: relative;
+  }
   .title {
     color: var(--secondary);
     font-size: 24px;
     margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .report-icon {
+    inset: 0;
+    position: absolute;
+    width: 100%;
   }
 
   /* REPORT INFO */
