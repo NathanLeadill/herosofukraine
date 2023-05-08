@@ -85,7 +85,7 @@
                 <img src="${await loadSvg('marker')}" alt="marker" />
               `,
               iconSize: [36, 36],
-              iconAnchor: [18, 36],
+              iconAnchor: [18, 18],
               popupAnchor: [0, -30],
             })
           },
