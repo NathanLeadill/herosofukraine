@@ -11,6 +11,7 @@ export const reports: ReportsType = {
     id: 0,
     title: 'Three tanks destroyed',
     description: 'Three tanks were destroyed this saturday during the conflict between the Ukrainian army and the Russian army.',
+    icon: 'globe',
     images: [{ 
       id: 0,
       url: 'https://ichef.bbci.co.uk/news/976/mcs/media/images/76121000/jpg/_76121456_ukrslovlocalsafp.jpg',
@@ -24,6 +25,7 @@ export const reports: ReportsType = {
     id: 1,
     title: 'Major offensive launched by Russia',
     description: 'A civilian was killed during the conflict between the Ukrainian army and the Russian army.',
+    icon: 'image',
     images: [{
       id: 1,
       url: 'https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HQXUPJ2X2Y5BPJC4DAPZX3SQF4.png&w=1440',
@@ -38,6 +40,7 @@ export const reports: ReportsType = {
     id: 3,
     title: 'Ukraine war continues into another day with no resolution in sight',
     description: 'No resolution in sight as the conflict between the Ukrainian army and the Russian army continues. Twelve russian soldiers were killed during the combat.',
+    icon: 'rose',
     images: [{
       id: 0,
       url: 'https://ichef.bbci.co.uk/news/976/mcs/media/images/76121000/jpg/_76121456_ukrslovlocalsafp.jpg',
@@ -53,6 +56,7 @@ export const reports: ReportsType = {
     // title about ukraine missiles launched
     title: 'Ukraine launches missiles at Russian forces',
     description: 'Ukraine launched missiles at Russian forces in the Donbass region on Thursday, April 22, 2021.',
+    icon: 'user',
     location: [50, 32],
     date: '2021-04-22T06:40:00.000Z',
     status: 'active',
@@ -62,6 +66,7 @@ export const reports: ReportsType = {
     id: 5,
     title: 'Ukraine loses control of the frontier',
     description: 'Ukraine lost control of the frontier with Russia this morning. The Russian army is now in control of the frontier. The Ukrainian army is now retreating to the city of Donetsk.',
+    icon: 'chevron-up',
     location: [48, 39],
     date: '2021-04-22T06:40:00.000Z',
     status: 'active',

@@ -3,7 +3,8 @@ type IconType =
   "image" |
   "rose" |
   "user" |
-  "chevron-up"
+  "chevron-up" |
+  "link"
 ;
 
 export type { IconType };

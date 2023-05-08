@@ -164,13 +164,28 @@
               on:click={() => updateReport(report)}
               on:keydown={event => handleKeyDown(event, report)}
             >
+              <div class="background-icon">
+                <Icon 
+                  name={report.icon}
+                  style="
+                    fill: var(--primary);
+                    flex-shrink: 0;
+                    height: 200%;
+                    position: absolute;
+                    right: 0;
+                    top: -50%;
+                    transform: rotate(-20deg);
+                    width: 50%;
+                  "
+                />
+              </div>
               <div class="top-side">
                 <div class="card-title-container">
                   <h4 class="card-title">
                     {report.title}
                   </h4>
                   <Icon 
-                    name="rose"
+                    name="link"
                     style="
                       fill: var(--accent);
                       flex-shrink: 0;
@@ -183,24 +198,6 @@
               <p class="card-date">
                 {timeSinceUpdate(new Date(report.date))}
               </p>
-              <p class="card-description">
-                {report.description}
-              </p>
-              <span class="card-view">
-                <Button
-                  inline
-                  style="
-                    background-color: var(--accent);
-                    border-radius: 0;
-                    color: var(--primary);
-                    font-weight: 500;
-                    padding: 0 12px;
-                    width: 100%;
-                  "
-                >
-                  View
-                </Button>
-              </span>
             </div>
           {/each}
         </div>
@@ -348,6 +345,7 @@
   }
   
   /* LIVE FEED */
+
   .reports-feed {
     border-top: 2px solid var(--primary-light);
     display: flex;
@@ -384,22 +382,17 @@
     position: relative;
     margin: 8px 0;
   }
-  .report-feed-card:after {
-    background: linear-gradient(to top, #24252c, #24252c00);
-    bottom: 16px;
-    content: "";
-    height: 62px;
-    left: 0;
+  .background-icon {
     position: absolute;
-    right: 0;
-    width: 100%;
-    z-index: 1;
+    inset: 0;
+    z-index: 0;
   }
   .top-side {
     display: flex;
     justify-content: space-between;
+    position: relative;
   }
-
+  
   .card-title-container {
     display: flex;
     justify-content: space-between;
@@ -411,31 +404,14 @@
     font-size: 16px;
     margin: 0 8px 0 0;
   }
+  
   .card-date {
     color: var(--secondary-light);
     font-size: 12px;
     margin: 0;
-    margin-bottom: 8px;
+    position: relative;
   }
-  .card-description {
-    color: var(--secondary-light);
-    display: -webkit-box;
-    font-size: 12px;
-    margin: 0;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-  }
-  .card-view {
-    color: var(--secondary);
-    font-size: 12px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2;
-  }  
+
   @keyframes pulse {
     from {
       transform: scale(1);

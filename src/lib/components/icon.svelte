@@ -2,6 +2,7 @@
 	import type { IconType } from '$models/icon';
 	import Chevron from './icons/Chevron.svelte';
 	import Globe from './icons/Globe.svelte';
+	import Link from './icons/Link.svelte';
 	import Photo from './icons/Photo.svelte';
 	import Rose from './icons/Rose.svelte';
 	import User from './icons/User.svelte';
@@ -24,6 +25,8 @@
 	<User {styled} />
 {:else if name === 'chevron-up'}
 	<Chevron {styled} />
+{:else if name === 'link'}
+	<Link {styled} />
 {/if}
 
 <style>
