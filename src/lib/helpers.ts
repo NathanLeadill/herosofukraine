@@ -57,3 +57,14 @@ export function timeSinceUpdate(lastUpdated: Date) {
 export const mainActiveReport = Object.values(reports).find(
   report => report.type === 'main' && report.status === 'active'
 );
+
+// Scroll curtain to top
+export function scrollCurtain() {
+  const scrollableContainer = document.querySelector('.curtain-body');
+  if(scrollableContainer){
+    scrollableContainer.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+}

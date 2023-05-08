@@ -26,7 +26,13 @@
     reportState.setSelectedReport(report);
     const scrollableContainer = document.querySelector('.curtain-body');
     if(scrollableContainer){
-      scrollableContainer.scrollTop = 0;
+      // Delay scroll to top to prevent overlapping with the curtain animation
+      setTimeout(() => {
+        scrollableContainer.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }, 10);
     }
   }
   
@@ -244,6 +250,7 @@
     position: absolute;
     opacity: 0.9;
 		width: 100%;
+    z-index: 9;
 	}
 	.curtain-body {
     height: calc(100vh - 121px);

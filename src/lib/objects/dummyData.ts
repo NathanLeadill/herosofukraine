@@ -59,7 +59,7 @@ export const reports: ReportsType = {
     icon: 'user',
     location: [50, 32],
     date: '2021-04-22T06:40:00.000Z',
-    status: 'active',
+    status: 'archived',
     type: 'secondary',
   },
   report5: {
