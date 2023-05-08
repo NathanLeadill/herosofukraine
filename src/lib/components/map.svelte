@@ -84,9 +84,9 @@
                 <img src="${await loadSvg(reports[key].icon)}" alt="${reports[key].icon}" />
                 <img src="${await loadSvg('marker')}" alt="marker" />
               `,
-              iconSize: [48, 60],
-              iconAnchor: [24, 60],
-              popupAnchor: [0, 0],
+              iconSize: [36, 36],
+              iconAnchor: [18, 36],
+              popupAnchor: [0, -30],
             })
           },
         )
@@ -105,13 +105,16 @@
             marker?.getPopup()?.getElement()?.appendChild(button);
             marker?.getPopup()?.setContent(`${popupContent}`);
           });
-          
+        
+        // Get all markers
+        const markers = document.querySelectorAll(".leaflet-marker-icon");
+
         // Add an event listener to open the popup when the marker is clicked
-        marker.on('click', () => {
+        marker.on('click', (e) => {
           marker.openPopup();
           reportState.setSelectedReport(report);
         });
-
+        
         // Event to clear the selected report when the map is clicked
         // NOTE: Could be improved by detecting if any popup is open but couldn't find a way to do it in a clean way
         map.on('click', function(e) {
