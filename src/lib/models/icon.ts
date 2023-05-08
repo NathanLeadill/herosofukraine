@@ -4,7 +4,8 @@ type IconType =
   "rose" |
   "user" |
   "chevron-up" |
-  "link"
+  "link" |
+  "marker"
 ;
 
 export type { IconType };

@@ -7,6 +7,13 @@
   import { onDestroy, onMount } from 'svelte';
 	import { reports } from '$lib/objects/dummyData';
 	import { mainActiveReport } from '$lib/helpers';
+	import type { IconType } from '$models/icon';
+	
+  // Dynamically import SVGs
+  async function loadSvg(icon: IconType) {
+    const { default: svg } = await import(`../images/${icon}.svg`);
+    return svg;
+  }
   
   // Map variables
   let mapElement: HTMLElement | null;
@@ -59,17 +66,29 @@
         button.innerHTML = 'Open';
         button.addEventListener('click', toggleCurtain);
         
+        console.log('# reports[key].icon :', reports[key].icon)
+
         // Create markers
         const marker = leaflet.marker(
           report.location,
-          // {
-          //   icon: leaflet.icon({
-          //     iconUrl: '/images/marker.svg',
-          //     iconSize: [30, 30],
-          //     iconAnchor: [15, 30],
-          //     popupAnchor: [0, -30],
-          //   }),
-          // },
+          {
+            // icon: leaflet.icon({
+            //   iconUrl: await loadSvg(reports[key].icon),
+            //   iconSize: [30, 30],
+            //   iconAnchor: [15, 30],
+            //   popupAnchor: [0, -30],
+            // }),
+            icon: leaflet.divIcon({
+              className: 'marker',
+              html: `
+                <img src="${await loadSvg(reports[key].icon)}" alt="${reports[key].icon}" />
+                <img src="${await loadSvg('marker')}" alt="marker" />
+              `,
+              iconSize: [48, 60],
+              iconAnchor: [24, 60],
+              popupAnchor: [0, 0],
+            })
+          },
         )
           .addTo(map)
           // Create marker popups

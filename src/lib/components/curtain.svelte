@@ -336,13 +336,13 @@
     visibility: visible;
   }
   .status-dot {
-    animation: pulse 1s ease-in-out infinite alternate;
+    animation: pulse 1.8s ease infinite;
     background-color: var(--success);
     border-radius: 50%;
     display: inline-block;
-    height: 8px;
+    height: 9px;
     margin: 0 8px;
-    width: 8px;
+    width: 9px;
   }
 
   .images {
@@ -446,11 +446,19 @@
   }
 
   @keyframes pulse {
-    from {
-      transform: scale(1);
+    0% {
+      scale: 0.88;
+      box-shadow: 0 0 0 0 #00ce18b3;
     }
-    to {
-      transform: scale(1.5);
+    
+    70% {
+      box-shadow: 0 0 0 8px #00ce1800;
+      scale: 1;
+    }
+    
+    100% {
+      scale: 0.88;
+      box-shadow: 0 0 0 0 #00ce1800;
     }
   }
 </style>
