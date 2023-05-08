@@ -86,7 +86,7 @@
               `,
               iconSize: [36, 36],
               iconAnchor: [18, 18],
-              popupAnchor: [0, -30],
+              popupAnchor: [0, -10],
             })
           },
         )
