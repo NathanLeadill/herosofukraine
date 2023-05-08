@@ -21,6 +21,22 @@
     curtainState.toggle();
   }
   
+  // Update the selected report & scroll to top
+  function updateReport(report: ReportType) {
+    reportState.setSelectedReport(report);
+    const scrollableContainer = document.querySelector('.curtain-body');
+    if(scrollableContainer){
+      scrollableContainer.scrollTop = 0;
+    }
+  }
+  
+  // Handle keyboard navigation
+  function handleKeyDown(event: KeyboardEvent, report: ReportType) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      updateReport(report);
+    }
+  }
+  
   // Filter out the report that is currently being viewed
   $: excludedReportId = selectedReport?.id;
   $: suggestedReports = Object.keys(reports)
@@ -103,17 +119,21 @@
             <!-- If single image -->
             {#if selectedReport.images.length === 1}
               <img alt="" class="image" src={selectedReport.images[0].url} />
-              <span class="caption">
-                {selectedReport.images[0].caption}
-              </span>
+              {#if selectedReport.images[0].caption}
+                <span class="caption">
+                  {selectedReport.images[0].caption}
+                </span>
+              {/if}
               <!-- If multiple images -->
               {:else if selectedReport.images.length > 1}
                 <div class="image-container">
                   {#each selectedReport.images as image}
                     <img class="image" alt="" src={image.url} />
-                    <span class="caption">
-                      {image.caption}
-                    </span>
+                    {#if image.caption}
+                      <span class="caption">
+                        {image.caption}
+                      </span>
+                    {/if}
                   {/each}
                 </div>
               <!-- If no image -->
@@ -125,7 +145,10 @@
           {/if}
         </div>
         <div class="content">
-          <p class="description">
+          <p 
+            class="description"
+            class:has-img={selectedReport.images && selectedReport.images.length > 0}
+          >
             <span class="first-letter">
               {selectedReport.description.charAt(0)}
             </span>
@@ -136,25 +159,48 @@
         <div class="reports-feed">
           <div class="reports-feed-separator" />
           {#each suggestedReports as report}
-            <div class="report-feed-card">
+            <div 
+              class="report-feed-card"
+              on:click={() => updateReport(report)}
+              on:keydown={event => handleKeyDown(event, report)}
+            >
               <div class="top-side">
                 <div class="card-title-container">
+                  <h4 class="card-title">
+                    {report.title}
+                  </h4>
                   <Icon 
                     name="rose"
                     style="
                       fill: var(--accent);
-                      height: 16px;
-                      width: 16px;
+                      flex-shrink: 0;
+                      height: 22px;
+                      width: 18px;
                     "
                   />
-                  <h4 class="card-title">
-                    {report.title}
-                  </h4>
                 </div>
               </div>
               <p class="card-date">
                 {timeSinceUpdate(new Date(report.date))}
               </p>
+              <p class="card-description">
+                {report.description}
+              </p>
+              <span class="card-view">
+                <Button
+                  inline
+                  style="
+                    background-color: var(--accent);
+                    border-radius: 0;
+                    color: var(--primary);
+                    font-weight: 500;
+                    padding: 0 12px;
+                    width: 100%;
+                  "
+                >
+                  View
+                </Button>
+              </span>
             </div>
           {/each}
         </div>
@@ -234,9 +280,8 @@
     position: relative;
   }
   .status .label {
-    border-bottom: 1px dotted var(--secondary);
+    border-bottom: 1px dotted var(--accent);
     border-width: 2px;
-    margin-right: 8px;
     padding: 0 2px;
   }
   .tooltip {
@@ -266,6 +311,7 @@
     border-radius: 50%;
     display: inline-block;
     height: 8px;
+    margin: 0 8px;
     width: 8px;
   }
 
@@ -284,13 +330,13 @@
     text-align: center;
     width: 100%;
   }
-  .content p {
+  .content p.has-img {
     margin: 10px 0;
   }
   .description {
     font-size: 16px;
     line-height: 1.5;
-    padding: 8px 0;
+    padding: 8px 0 18px;
   }
   .first-letter {
     float: left;
@@ -300,7 +346,7 @@
     margin-right: 8px;
     text-transform: uppercase;
   }
-
+  
   /* LIVE FEED */
   .reports-feed {
     border-top: 2px solid var(--primary-light);
@@ -308,7 +354,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin-top: 16px;
-    padding-top: 28px;
+    padding-top: 24px;
   }
   .reports-feed-separator {
     position: relative;
@@ -325,34 +371,71 @@
     padding: 0 8px;
     position: absolute;
     text-transform: uppercase;
-    top: -38px;
+    top: -34px;
     transform: translateX(-50%);
   }
   .report-feed-card {
     background-color: var(--primary-light);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    overflow: hidden;
     padding: 16px;
+    position: relative;
     margin: 8px 0;
+  }
+  .report-feed-card:after {
+    background: linear-gradient(to top, #24252c, #24252c00);
+    bottom: 16px;
+    content: "";
+    height: 62px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    z-index: 1;
   }
   .top-side {
     display: flex;
     justify-content: space-between;
   }
+
   .card-title-container {
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    width: 100%;
   }
   .card-title {
     color: var(--secondary);
-    font-size: 14px;
-    margin: 0 8px;
+    font-size: 16px;
+    margin: 0 8px 0 0;
   }
   .card-date {
     color: var(--secondary-light);
     font-size: 12px;
     margin: 0;
+    margin-bottom: 8px;
   }
-  
+  .card-description {
+    color: var(--secondary-light);
+    display: -webkit-box;
+    font-size: 12px;
+    margin: 0;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  .card-view {
+    color: var(--secondary);
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+  }  
   @keyframes pulse {
     from {
       transform: scale(1);

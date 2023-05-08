@@ -35,7 +35,7 @@
 <style>
 	button {
 		background-color: var(--accent);
-		border: 1px solid var(--accent);
+		border: 1px solid transparent;
 		border-radius: var(--max-radius);
 		color: var(--primary);
 		cursor: pointer;
@@ -48,7 +48,7 @@
 	button:focus,
 	button:hover {
 		background-color: var(--accent);
-		border: 1px solid var(--accent);
+		border: 1px solid transparent;
 		outline: none;
 		opacity: 0.7;
 	}

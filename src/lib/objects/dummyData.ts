@@ -14,7 +14,6 @@ export const reports: ReportsType = {
     images: [{ 
       id: 0,
       url: 'https://ichef.bbci.co.uk/news/976/mcs/media/images/76121000/jpg/_76121456_ukrslovlocalsafp.jpg',
-      caption: 'Photo near the Ukrainian military base',
     }],
     location: [51, 36],
     date: '2021-04-24T06:40:00.000Z',
@@ -48,5 +47,24 @@ export const reports: ReportsType = {
     date: '2023-05-05T06:40:00.000Z',
     status: 'active',
     type: 'main',
+  },
+  report4: {
+    id: 4,
+    // title about ukraine missiles launched
+    title: 'Ukraine launches missiles at Russian forces',
+    description: 'Ukraine launched missiles at Russian forces in the Donbass region on Thursday, April 22, 2021.',
+    location: [50, 32],
+    date: '2021-04-22T06:40:00.000Z',
+    status: 'active',
+    type: 'secondary',
+  },
+  report5: {
+    id: 5,
+    title: 'Ukraine loses control of the frontier',
+    description: 'Ukraine lost control of the frontier with Russia this morning. The Russian army is now in control of the frontier. The Ukrainian army is now retreating to the city of Donetsk.',
+    location: [48, 39],
+    date: '2021-04-22T06:40:00.000Z',
+    status: 'active',
+    type: 'secondary',
   },
 };
