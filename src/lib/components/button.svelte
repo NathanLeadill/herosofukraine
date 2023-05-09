@@ -1,4 +1,5 @@
 <script lang="ts">
+	export let id: string | undefined = undefined;
 	export let active = false;
 	export let disabled = false;
 	export let iconOnly = false;
@@ -21,6 +22,7 @@
 	class:noHover
 	class:sidebar
 	class:transparent
+	{id}
 	{style}
 	{type}
 	on:click
@@ -108,7 +110,6 @@
 		background-color: var(--accent-hover);
 	}
 	.disabled {
-		background-color: var(--primary-light);
 		border: 1px solid var(--primary-light);
 		color: var(--primary-inverse);
 		cursor: not-allowed;

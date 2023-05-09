@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Curtain from "$components/curtain.svelte";
 	import Map from "$components/map.svelte";
+	import MapNav from "$components/mapNav.svelte";
 
 </script>
 
@@ -41,9 +42,10 @@
 	</p> -->
 	<Map />
 </section>
-	
 
+<MapNav />
 <Curtain />
+
 
 <style>
 	section {

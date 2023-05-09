@@ -310,7 +310,7 @@
     position: relative;
   }
   .status .label {
-    border-bottom: 1px dotted var(--accent);
+    border-bottom: 1px dotted var(--secondary-light);
     border-width: 2px;
     padding: 0 2px;
   }
