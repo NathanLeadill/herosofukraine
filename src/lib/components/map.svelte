@@ -47,16 +47,22 @@
       const mapOptions = {
         center: lastReportLocation.location,
         zoom: 5,
+        zoomControl: false,
         locale: 'en'
       }
       map = leaflet.map(mapElement, mapOptions)
+
+      // 
+      leaflet.control.zoom({
+          position: 'bottomleft'
+      }).addTo(map);
       
       // Load openstreetmap tiles & add to map
       leaflet.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://carto.com/">carto.com</a>'
       }).addTo(map);
-      
+
       // Add markers for each location
       for (const key in reports) {
         const report = reports[key];

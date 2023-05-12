@@ -40,16 +40,36 @@
 .leaflet-touch .leaflet-control-attribution {
   background: black !important;
   color: white !important;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
 }
 /* Copyright logo */
 .leaflet-control-attribution, .leaflet-control-scale-line {
   color: white !important;
 }
 /* Links */
-.leaflet-container a {
+.leaflet-control-attribution a {
   color: var(--accent) !important;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.leaflet-control-zoom {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.leaflet-control-zoom a {
+  background-color: rgba(96, 96, 96, 0.2);
+  backdrop-filter: blur(10px) saturate(180%);
+  color: var(--secondary);
+}
+.leaflet-touch .leaflet-bar a {
+  height: 40px;
+  line-height: 40px;
+  width: 40px;
+}
+.leaflet-bar a:hover, .leaflet-bar a:focus {
+  background-color: rgba(96, 96, 96, 0.4);
+  backdrop-filter: blur(10px) saturate(180%);
+  color: var(--secondary);
 }
 
 .popup-title {
@@ -85,7 +105,6 @@
 .leaflet-popup-tip-container {
   display: none;
 }
-
 
 /* CSS RESET */
 

@@ -1,6 +1,7 @@
 import type { ReportType } from '$models/report';
 import { writable } from 'svelte/store';
-import { mainActiveReport, scrollCurtain } from './helpers';
+import { scrollCurtain } from './helpers';
+import { reports } from './objects/dummyData';
 
 // toggleCurtain store
 function toggleCurtain(initState: boolean){
@@ -17,6 +18,9 @@ interface SelectedReportType {
 }
 
 // selectReport store
+const mainActiveReport = Object.values(reports).find(
+  report => report.type === 'main' && report.status === 'active'
+)
 function selectedReportStore() {
   const { subscribe, update } = writable<SelectedReportType>({
     selectedReport: mainActiveReport,
@@ -33,5 +37,9 @@ function selectedReportStore() {
   };
 };
 
+// selectedDate store
+const selectedDateStore = writable<Date>(new Date());
+
 export const curtainState = toggleCurtain(false);
 export const reportState = selectedReportStore();
+export const dateState = selectedDateStore;

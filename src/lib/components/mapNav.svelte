@@ -1,33 +1,43 @@
 <script lang='ts'>
 	import { browser } from "$app/environment";
+	import { getPreviousOrNextDay, isToday } from "$lib/helpers";
+	import { dateState } from "$lib/stores";
 	import Button from "./button.svelte";
 	import Icon from "./icon.svelte";
+  
+  // Subscribe to date state in the store
+  let selectedDate = new Date();
+  dateState.subscribe((value) => {
+    selectedDate = value;
+  });
+  
+  function getPreviousDay() {
+    !isToday(selectedDate) && getPreviousOrNextDay(selectedDate, "previous");
+  }
+  function getNextDay() {
+    getPreviousOrNextDay(selectedDate, "next");
+  }
   
   // Style
   const buttonsStyle = `
     border: none;
-    background: var(--primary-light);
+    background-color: rgba(96, 96, 96, 0.2);
+    backdrop-filter: blur(10px) saturate(180%);
+    backdrop-filter: blur(10px) saturate(180%);
     border-radius: 10px;
     padding: 5px 16px;
-  `
-  
-  // Format date
-  const dateFormatOptions = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-	const formatter = new Intl.DateTimeFormat('en-US', dateFormatOptions);
+  `;
 
 </script>
 
 <div class="mapNav">
   <Button
-    disabled
-    iconOnly
-    inline
-    style={buttonsStyle}
-  >
+      disabled={isToday(selectedDate)}
+      iconOnly
+      inline
+      on:click={() => getPreviousDay()}
+      style={buttonsStyle}
+    >
     <div class="icon" slot="icon">
       <Icon 
         name="chevron-up" 
@@ -39,12 +49,13 @@
     <input
       class="date-input"
       type="date"
-      value={new Date().toISOString().substring(0, 10)}
+      value={selectedDate.toISOString().split('T')[0]}  
     />
   </div>
   <Button
     iconOnly
     inline
+    on:click={() => getPreviousOrNextDay(selectedDate, 'next')}
     style={buttonsStyle}
   >
     <div class="icon" slot="icon">
@@ -70,7 +81,8 @@
     width: 28px;
   }
   .date-input {
-    background: var(--primary-light);
+    background-color: rgba(96, 96, 96, 0.2);
+    backdrop-filter: blur(10px) saturate(180%);
     border: none;
     border-radius: 10px;
     color: var(--secondary);

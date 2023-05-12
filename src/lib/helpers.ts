@@ -1,5 +1,6 @@
 import type { RequestEvent } from '../routes/api/fetch-heros/$types';
 import { reports } from './objects/dummyData';
+import { dateState } from './stores';
 
 export function jsonResponse<T>(data: T, status = 200): Response {
 	return new Response(JSON.stringify(data), {
@@ -39,6 +40,7 @@ export function timeSinceUpdate(lastUpdated: Date) {
 	const diffSeconds = Math.floor(diffMillis / 1000);
 	const diffMinutes = Math.floor(diffMillis / (1000 * 60));
 	const diffHours = Math.floor(diffMillis / (1000 * 60 * 60));
+	const diffDays = Math.floor(diffMillis / (1000 * 60 * 60 * 24));
 	
 	// Display the result
 	if (diffHours > 0 && diffHours < 24) {
@@ -47,9 +49,11 @@ export function timeSinceUpdate(lastUpdated: Date) {
 		return `Updated ${diffMinutes} minutes ago`
 	} else if (diffSeconds > 0 && diffSeconds < 60) {
 		return `Updated ${diffSeconds} seconds ago`
+	} else if (diffHours >= 24 && diffDays < 3) {
+		return `Updated ${diffDays} days ago`
 	} else {
-		// return `Updated ${formatter.format(lastUpdated)} (${timeZoneName})`
-		return `${formatter.format(lastUpdated)}`
+		return `${formatter.format(lastUpdated)}`;
+		// return `${formatter.format(lastUpdated)} (${timeZoneName})`
 	}
 }
 
@@ -68,3 +72,27 @@ export function scrollCurtain() {
     });
   }
 }
+
+// Get previous or next day
+export function getPreviousOrNextDay(date: Date, previous: 'previous' | 'next') {
+	const newDate = new Date(date);
+	if(previous === 'previous'){
+		newDate.setDate(newDate.getDate() - 1);
+	} else if(previous === 'next'){
+		newDate.setDate(newDate.getDate() + 1);
+	} else {
+		throw "Invalid 'previous | next' value";
+	}
+	dateState.set(newDate);
+	return newDate;
+}
+
+// Check if date is today
+export const isToday = (date: Date) => {
+	const today = new Date();
+	return (
+		date.getDate() === today.getDate() &&
+		date.getMonth() === today.getMonth() &&
+		date.getFullYear() === today.getFullYear()
+	);
+};
