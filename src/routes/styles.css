@@ -9,6 +9,7 @@
 	--secondary: #f3f3f3;
 	--secondary-light: #ababab;
   --secondary-lighter: #444444;
+  --shadow: rgba(0, 0, 0, 0.2);
 	--paywall: #deffbc;
   --success: #00ce17;
   --warning: #da7604;
@@ -110,6 +111,28 @@
 
 .leaflet-popup-tip-container {
   display: none;
+}
+
+/* SCROLLBAR */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-lighter) transparent;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-lighter);
+  border-radius: 10px;
 }
 
 /* CSS RESET */

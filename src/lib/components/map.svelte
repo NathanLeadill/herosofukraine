@@ -51,8 +51,8 @@
       // Create map
       const lastReportLocation = reports[Object.keys(reports)[0] as keyof typeof reports];
       const mapOptions = {
-        center: isMobile ? lastReportLocation.location : [lastReportLocation.location[0], lastReportLocation.location[1] - 9],
-        zoom: 5,
+        center: lastReportLocation.location,
+        zoom: 6,
         zoomControl: false,
         locale: 'en'
       }
@@ -143,7 +143,7 @@
         // Calculate the longitude range of the current view
         const longitudeRange = bounds.getEast() - bounds.getWest();
         // Calculate the desired longitude offset (e.g., 75% of the longitude range)
-        const longitudeOffset = 0.75 * longitudeRange;
+        const longitudeOffset = 0.75 / longitudeRange;
         // Calculate the new longitude value for the center
         const desktopCenter = [bounds.getCenter().lat, bounds.getWest() + longitudeOffset];
         
@@ -206,7 +206,7 @@
 	@media (min-width: 600px) {
 		#map {
       display: block;
-      height: calc(100vh - 270px);
+      height: calc(100vh - 250px);
 			position: absolute;
       width: 100%;
 		}

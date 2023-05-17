@@ -3,6 +3,7 @@
 	import Map from "$components/map.svelte";
 	import MapNav from "$components/mapNav.svelte";
 	import Report from "$components/report.svelte";
+	import ReportsFeed from "$components/reportsFeed.svelte";
 	import Sidebar from "$components/sidebar.svelte";
 
 </script>
@@ -44,6 +45,7 @@
 	</p> -->
 	<Map />
 	<Report />
+	<ReportsFeed />
 </section>
 
 <MapNav />
@@ -60,6 +62,7 @@
 	}
 	@media (min-width: 600px) {
 		section {
+			height: 100vh;
 			position: relative;
 			flex-direction: row-reverse;
 			justify-content: space-between;
