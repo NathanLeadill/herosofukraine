@@ -18,6 +18,7 @@ const config = {
 			$components: './src/lib/components',
 			$models: './src/lib/models',
 			$icons: './src/lib/components/icons/svg',
+			$images: './src/lib/images',
 		}
 	}
 };

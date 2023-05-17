@@ -2,6 +2,8 @@
 	import Curtain from "$components/curtain.svelte";
 	import Map from "$components/map.svelte";
 	import MapNav from "$components/mapNav.svelte";
+	import Report from "$components/report.svelte";
+	import Sidebar from "$components/sidebar.svelte";
 
 </script>
 
@@ -41,10 +43,12 @@
 		me on Reddit
 	</p> -->
 	<Map />
+	<Report />
 </section>
 
 <MapNav />
 <Curtain />
+<Sidebar />
 
 
 <style>
@@ -52,15 +56,14 @@
 		display: flex;
 		flex-direction: column;
 		flex: 0.6;
+		height: 0;
 	}
-	.content-container {
-		background: var(--primary-light);
-		padding: 16px 24px;
-		z-index: 2;
-	}
-	.title {
-		font-family: 'Poppins';
-		font-size: 26px;
-		font-weight: 700;
+	@media (min-width: 600px) {
+		section {
+			position: relative;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			flex: 1;
+		}
 	}
 </style>

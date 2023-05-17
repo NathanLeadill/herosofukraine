@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { ReportType } from '$models/report';
-  import { reportState } from '$lib/stores';
+  import { reportState, viewportState } from '$lib/stores';
   import { browser } from '$app/environment';
 	import { curtainState } from '$lib/stores';
   import type { Map } from 'leaflet';
@@ -14,6 +14,12 @@
     const { default: svg } = await import(`../images/${icon}.svg`);
     return svg;
   }
+  
+  // Check if mobile
+  let isMobile = false;
+  viewportState.subscribe(value => {
+    isMobile = value.isMobile;
+  });
   
   // Map variables
   let mapElement: HTMLElement | null;
@@ -45,21 +51,22 @@
       // Create map
       const lastReportLocation = reports[Object.keys(reports)[0] as keyof typeof reports];
       const mapOptions = {
-        center: lastReportLocation.location,
+        center: isMobile ? lastReportLocation.location : [lastReportLocation.location[0], lastReportLocation.location[1] - 9],
         zoom: 5,
         zoomControl: false,
         locale: 'en'
       }
       map = leaflet.map(mapElement, mapOptions)
-
-      // 
+      
+      // Add zoom control
       leaflet.control.zoom({
           position: 'bottomleft'
       }).addTo(map);
       
       // Load openstreetmap tiles & add to map
       leaflet.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', {
-        maxZoom: 19,
+        maxZoom: 16,
+        minZoom: 3,
         attribution: '&copy; <a href="https://carto.com/">carto.com</a>'
       }).addTo(map);
 
@@ -72,8 +79,6 @@
         button.innerHTML = 'Open';
         button.addEventListener('click', toggleCurtain);
         
-        console.log('# reports[key].icon :', reports[key].icon)
-
         // Create markers
         const marker = leaflet.marker(
           report.location,
@@ -84,6 +89,7 @@
             //   iconAnchor: [15, 30],
             //   popupAnchor: [0, -30],
             // }),
+            autoPanPadding: [50, 50],
             icon: leaflet.divIcon({
               className: 'marker',
               html: `
@@ -93,12 +99,13 @@
               iconSize: [36, 36],
               iconAnchor: [18, 18],
               popupAnchor: [0, -10],
-            })
+            }),
           },
-        )
-          .addTo(map)
+        ).addTo(map);
+        
+        if(isMobile) {
           // Create marker popups
-          .bindPopup(
+          marker.bindPopup(
             leaflet.popup().setContent(`<h3 class="popup-title">${report.title} </h3>`),
             { 
               closeButton: false, 
@@ -111,15 +118,57 @@
             marker?.getPopup()?.getElement()?.appendChild(button);
             marker?.getPopup()?.setContent(`${popupContent}`);
           });
+        } else {
+          marker.bindPopup(
+            leaflet.popup().setContent(`<h3 class="popup-title">${report.title} </h3>`),
+            { 
+              closeButton: false, 
+              maxWidth: 200,
+            },
+          )
+          marker.on('mouseover', function(e) {
+            marker.openPopup();
+          });
+          marker.on('mouseout', function(e) {
+            marker.closePopup();
+          });
+        }
+        
         
         // Get all markers
         const markers = document.querySelectorAll(".leaflet-marker-icon");
-
-        // Add an event listener to open the popup when the marker is clicked
-        marker.on('click', (e) => {
-          marker.openPopup();
-          reportState.setSelectedReport(report);
-        });
+        
+        // Get the current map bounds
+        const bounds = map.getBounds();
+        // Calculate the longitude range of the current view
+        const longitudeRange = bounds.getEast() - bounds.getWest();
+        // Calculate the desired longitude offset (e.g., 75% of the longitude range)
+        const longitudeOffset = 0.75 * longitudeRange;
+        // Calculate the new longitude value for the center
+        const desktopCenter = [bounds.getCenter().lat, bounds.getWest() + longitudeOffset];
+        
+        // onClick
+        if(isMobile) {
+          // Add an event listener to open the popup when the marker is clicked
+          marker.on('click', (e) => {
+            marker.openPopup();
+            reportState.setSelectedReport(report);
+            
+            // Center the map on the marker
+            const latlng = e.latlng;
+            const zoom = map.getZoom();
+            map.setView([latlng.lat + 1.5, latlng.lng], zoom)
+          });
+        } else {
+          marker.on('click', function(e) {
+            // Set the selected report in the store
+            reportState.setSelectedReport(report);
+            // Center the map on the marker
+            const latlng = e.latlng;
+            const zoom = map.getZoom();
+            map.setView(desktopCenter, zoom)
+          })
+        }
         
         // Event to clear the selected report when the map is clicked
         // NOTE: Could be improved by detecting if any popup is open but couldn't find a way to do it in a clean way
@@ -153,4 +202,24 @@
     width: 100vw;
     z-index: 1;
   }
+  
+	@media (min-width: 600px) {
+		#map {
+      display: block;
+      height: calc(100vh - 270px);
+			position: absolute;
+      width: 100%;
+		}
+    #map:after {
+      background: linear-gradient(90deg, var(--primary) 20%, rgba(21, 22, 20, 0.8) 40%, rgba(21, 22, 20, 0) 60%, transparent 100%);
+      content: "";
+      display: block;
+      height: 100%;
+      pointer-events: none;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 9999;
+    }
+	}
 </style>

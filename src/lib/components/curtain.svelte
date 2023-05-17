@@ -243,6 +243,13 @@
 		width: 100%;
 		z-index: 4;
 	}
+
+	@media screen and (min-width: 600px) {
+    .open-window-btn {
+      display: none;
+    }
+  }
+	
 	.curtainActive {
 		bottom: calc(100% - 121px);
 		transition: all .3s ease;
@@ -289,7 +296,7 @@
     position: absolute;
     width: 100%;
   }
-
+  
   /* REPORT INFO */
   .report-info {
     display: flex;

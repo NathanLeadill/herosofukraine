@@ -23,7 +23,7 @@
     border: none;
     background-color: rgba(96, 96, 96, 0.2);
     backdrop-filter: blur(10px) saturate(180%);
-    backdrop-filter: blur(10px) saturate(180%);
+    border: 2px solid var(--primary);
     border-radius: 10px;
     padding: 5px 16px;
   `;
@@ -72,10 +72,18 @@
     align-items: center;
     display: flex;
     justify-content: space-around;
-    margin-top: 8px;
+    margin-top: 10px;
     position: relative;
     z-index: 1;
   }
+  @media (min-width: 600px) {
+    .mapNav {
+      position: absolute;
+      right: 0;  
+      top: 100px;
+    }
+  }
+
   .icon {
     height: 28px;
     width: 28px;
@@ -83,7 +91,7 @@
   .date-input {
     background-color: rgba(96, 96, 96, 0.2);
     backdrop-filter: blur(10px) saturate(180%);
-    border: none;
+    border: 2px solid var(--primary);
     border-radius: 10px;
     color: var(--secondary);
     font-size: 16px;

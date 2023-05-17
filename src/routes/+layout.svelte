@@ -27,7 +27,7 @@
 		flex-direction: column;
 		min-height: 100vh;
 	}
-
+	
 	main {
 		box-sizing: border-box;
 		margin: 0 auto;
@@ -36,10 +36,14 @@
 	}
 	@media (min-width: 600px) {
 		main {
-			margin-top: 126px;
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			margin-top: 0;
+			height: 100vh;
 		}
 	}
-
+	
 	footer {
 		align-items: center;
 		display: flex;
@@ -47,6 +51,11 @@
 		justify-content: center;
 		padding: 12px;
 		margin-bottom: 36px;
+	}
+	@media (min-width: 600px) {
+		footer {
+			display: none;
+		}
 	}
 	footer p {
 		text-align: center;

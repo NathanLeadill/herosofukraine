@@ -38,7 +38,7 @@ export const reports: ReportsType = {
   },
   report3: {
     id: 3,
-    title: 'Ukraine war continues into another day with no resolution in sight',
+    title: 'Ukraine war continues',
     description: 'No resolution in sight as the conflict between the Ukrainian army and the Russian army continues. Twelve russian soldiers were killed during the combat.',
     icon: 'rose',
     images: [{
