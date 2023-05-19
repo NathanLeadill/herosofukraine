@@ -1,7 +1,6 @@
 <script lang='ts'>
 	import { timeSinceUpdate } from "$lib/helpers";
   import { curtainState, reportState } from "$lib/stores";
-	import { reports } from '$lib/objects/dummyData';
 	import type { ReportType } from "$models/report";
 	import Button from "./button.svelte";
 	import Icon from "./icon.svelte";
@@ -140,15 +139,17 @@
           {/if}
         </div>
         <div class="content">
-          <p 
-            class="description"
-            class:has-img={selectedReport.images && selectedReport.images.length > 0}
-          >
-            <span class="first-letter">
-              {selectedReport.description.charAt(0)}
-            </span>
-            {selectedReport.description.slice(1)}
-          </p>
+          {#if selectedReport.description}
+            <p 
+              class="description"
+              class:has-img={selectedReport.images && selectedReport.images.length > 0}
+            >
+              <span class="first-letter">
+                {selectedReport.description.charAt(0)}
+              </span>
+              {selectedReport.description.slice(1)}
+            </p>
+          {/if}
         </div>
       {:else}
         <h2>

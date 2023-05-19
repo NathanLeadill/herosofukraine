@@ -1,6 +1,7 @@
+import type { ReportType } from '$models/report';
 import type { RequestEvent } from '../routes/api/fetch-heros/$types';
-import { reports } from './objects/dummyData';
-import { dateState } from './stores';
+import { dummyReports } from './objects/dummyData';
+import { dateState, reports } from './stores';
 
 export function jsonResponse<T>(data: T, status = 200): Response {
 	return new Response(JSON.stringify(data), {
@@ -41,26 +42,35 @@ export function timeSinceUpdate(lastUpdated: Date) {
 	const diffMinutes = Math.floor(diffMillis / (1000 * 60));
 	const diffHours = Math.floor(diffMillis / (1000 * 60 * 60));
 	const diffDays = Math.floor(diffMillis / (1000 * 60 * 60 * 24));
-	
+
 	// Display the result
 	if (diffHours > 0 && diffHours < 24) {
-		return `Updated ${diffHours} hours ago`
+		return `Today at ${lastUpdated.toLocaleString(undefined, { hour: 'numeric', hour12: true })}`
 	} else if (diffMinutes > 0 && diffMinutes < 60) {
-		return `Updated ${diffMinutes} minutes ago`
+		return `${diffMinutes} minutes ago`
 	} else if (diffSeconds > 0 && diffSeconds < 60) {
-		return `Updated ${diffSeconds} seconds ago`
-	} else if (diffHours >= 24 && diffDays < 3) {
-		return `Updated ${diffDays} days ago`
+		return `${diffSeconds} seconds ago`
+	} else if (diffDays === 1) {
+		return `Yesterday at ${lastUpdated.toLocaleString(undefined, { hour: 'numeric', hour12: true })}`
 	} else {
 		return `${formatter.format(lastUpdated)}`;
 		// return `${formatter.format(lastUpdated)} (${timeZoneName})`
 	}
 }
 
-// Get the main active report
-export const mainActiveReport = Object.values(reports).find(
-  report => report.type === 'main' && report.status === 'active'
-);
+
+
+// Get main active report
+let allReports: ReportType | undefined;
+reports.subscribe(state => {
+	allReports = state;
+});
+export function getMainActiveReport() {
+	return allReports.find((report: ReportType) => (
+		report.status === 'active' && 
+		report.type === 'main'
+	));
+}
 
 // Scroll curtain to top
 export function scrollCurtain() {

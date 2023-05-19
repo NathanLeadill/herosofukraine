@@ -1,14 +1,16 @@
-type ReportType = {
-  id: number;
-  title: string;
-  date: string;
-  description: string;
-  icon: ReportIcon;
-  images?: Image[];
-  location: [number, number];
-  status: 'active' | 'archived';
-  type: 'main' | 'secondary';
-};
+// type ReportType = {
+//   id: number;
+//   title: string;
+//   date: string;
+//   description: string;
+//   icon: ReportIcon;
+//   images?: Image[];
+//   location: [number, number];
+//   status: 'active' | 'archived';
+//   type: 'main' | 'secondary';
+// };
+
+type ReportType = any;
 
 type Image = {
   id: number;

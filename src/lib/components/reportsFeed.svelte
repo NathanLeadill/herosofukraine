@@ -1,6 +1,6 @@
 <script lang='ts'>
 	import { timeSinceUpdate } from "$lib/helpers";
-	import { reports } from "$lib/objects/dummyData";
+	import { dummyReports } from "$lib/objects/dummyData";
 	import { reportState } from "$lib/stores";
 	import type { ReportType } from "$models/report";
 	import Icon from "./icon.svelte";
@@ -12,9 +12,9 @@
   
   // Filter out the report that is currently being viewed
   $: excludedReportId = selectedReport?.id;
-  $: suggestedReports = Object.keys(reports)
-    .filter(key => reports[key].id !== excludedReportId)
-    .map(key => reports[key]);
+  $: suggestedReports = Object.keys(dummyReports)
+    .filter(key => dummyReports[key].id !== excludedReportId)
+    .map(key => dummyReports[key]);
 
   // Update the selected report & scroll to top
   function updateReport(report: ReportType) {

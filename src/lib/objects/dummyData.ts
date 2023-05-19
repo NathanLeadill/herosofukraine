@@ -6,7 +6,7 @@ type ReportsType = {
 }
 
 // Data
-export const reports: ReportsType = {
+export const dummyReports: ReportsType = {
   report1: {
     id: 0,
     title: 'Three tanks destroyed',
@@ -17,8 +17,8 @@ export const reports: ReportsType = {
       url: 'https://ichef.bbci.co.uk/news/976/mcs/media/images/76121000/jpg/_76121456_ukrslovlocalsafp.jpg',
     }],
     location: [51, 36],
-    date: '2021-04-24T06:40:00.000Z',
-    status: 'active',
+    date: new Date(new Date().setDate(new Date().getDate() - 1)).toISOString(),
+    status: 'archived',
     type: 'secondary',
   },
   report2: {
@@ -32,7 +32,7 @@ export const reports: ReportsType = {
       caption: 'Photo of the intense fightings',
     }],
     location: [49.9, 39.2],
-    date: '2021-04-24T02:03:00.000Z',
+    date: new Date(new Date().setDate(new Date().getDate() - 1)).toISOString(),
     status: 'archived',
     type: 'secondary',
   },
@@ -47,8 +47,8 @@ export const reports: ReportsType = {
       caption: 'Photo near the Ukrainian military base',
     }],
     location: [49, 31],
-    date: '2023-05-05T06:40:00.000Z',
-    status: 'active',
+    date: new Date(new Date().setDate(new Date().getDate() - 2)).toISOString(),
+    status: 'archived',
     type: 'main',
   },
   report4: {
@@ -57,8 +57,8 @@ export const reports: ReportsType = {
     title: 'Ukraine launches missiles at Russian forces',
     description: 'Ukraine launched missiles at Russian forces in the Donbass region on Thursday, April 22, 2021.',
     icon: 'user',
-    location: [50, 32],
-    date: '2021-04-22T06:40:00.000Z',
+    location: [50, 44],
+    date: new Date(new Date().setDate(new Date().getDate() - 2)).toISOString(),
     status: 'archived',
     type: 'secondary',
   },
@@ -68,8 +68,8 @@ export const reports: ReportsType = {
     description: 'Ukraine lost control of the frontier with Russia this morning. The Russian army is now in control of the frontier. The Ukrainian army is now retreating to the city of Donetsk.',
     icon: 'chevron-up',
     location: [48, 39],
-    date: '2021-04-22T06:40:00.000Z',
-    status: 'active',
+    date: new Date(new Date().setDate(new Date().getDate() - 2)).toISOString(),
+    status: 'archived',
     type: 'secondary',
   },
 };

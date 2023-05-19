@@ -3,11 +3,21 @@
 	import type { ReportType } from "$models/report";
 	import Icon from "./icon.svelte";
   import { timeSinceUpdate } from "$lib/helpers";
-
+  import { reports } from '$lib/stores';
+  
+  // Subscribe to updates in the selectedReport store
   let selectedReport: ReportType | undefined;
   reportState.subscribe(state => {
     selectedReport = state.selectedReport;
   });
+  
+  // Subscribe to updates in the reports store
+  let data: ReportType[] | undefined;
+  reports.subscribe((value) => {
+    data = value;
+  });
+  console.log('# store data (report.svelte):', data)
+
 </script>
 
 {#if selectedReport}
@@ -35,9 +45,16 @@
       {timeSinceUpdate(new Date(selectedReport.date))}
     </p>
     <div class="description-container">
-      <p class="description">
-        {selectedReport?.description}
-      </p>
+      {#if selectedReport.description}
+        <p class="description">
+          {selectedReport?.description}
+        </p>
+        <!-- else -->
+      {:else}
+        <p class="description">
+          No description available.
+        </p>
+      {/if}
     </div>
   </div>
 {/if}

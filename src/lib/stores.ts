@@ -1,7 +1,7 @@
 import type { ReportType } from '$models/report';
 import { writable } from 'svelte/store';
 import { scrollCurtain } from './helpers';
-import { reports } from './objects/dummyData';
+import { dummyReports } from './objects/dummyData';
 import { browser } from '$app/environment';
 
 // toggleCurtain store
@@ -19,21 +19,18 @@ interface SelectedReportType {
 }
 
 // selectReport store
-const mainActiveReport = Object.values(reports).find(
-  report => report.type === 'main' && report.status === 'active'
-)
 function selectedReportStore() {
   const { subscribe, update } = writable<SelectedReportType>({
-    selectedReport: mainActiveReport,
+    selectedReport: undefined,
   });
   
   return {
     subscribe,
     setSelectedReport: (report: ReportType) => {
-      update((store) => ({ ...store, selectedReport: report }))
+      update(() => ({ selectedReport: report }))
     },
-    clearSelectedReport: () => {
-      update((store) => ({ ...store, selectedReport: undefined }))
+    resetSelectedReport: () => {
+      update(() => ({ selectedReport: undefined }))
     },
   };
 };
@@ -58,7 +55,35 @@ if(browser) {
   });
 }
 
+// Reports store
+function reportsStore() {
+  const { subscribe, set, update } = writable<ReportType[]>([]);
+  
+  return {
+    subscribe,
+    addReport: (report: ReportType) => {
+      update((reports) => [...reports, report]);
+    },
+    updateReport: (id: number, updatedReport: ReportType) => {
+      update((reports) => {
+        const index = reports.findIndex((report) => report.id === id);
+        if (index !== -1) {
+          reports[index] = updatedReport;
+        }
+        return [...reports];
+      });
+    },
+    removeReport: (id: number) => {
+      update((reports) => reports.filter((report) => report.id !== id));
+    },
+    clearReports: () => {
+      set([]);
+    },
+  };
+}
+
 export const curtainState = toggleCurtain(false);
 export const reportState = selectedReportStore();
 export const dateState = selectedDateStore;
 export const viewportState = viewport;
+export const reports = reportsStore();
