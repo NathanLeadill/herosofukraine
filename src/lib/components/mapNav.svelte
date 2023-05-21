@@ -1,6 +1,6 @@
 <script lang='ts'>
 	import { browser } from "$app/environment";
-	import { getPreviousOrNextDay, isToday } from "$lib/helpers";
+	import { setPreviousOrNextDay, isToday } from "$lib/helpers";
 	import { dateState } from "$lib/stores";
 	import Button from "./button.svelte";
 	import Icon from "./icon.svelte";
@@ -11,11 +11,13 @@
     selectedDate = value;
   });
   
-  function getPreviousDay() {
-    !isToday(selectedDate) && getPreviousOrNextDay(selectedDate, "previous");
-  }
-  function getNextDay() {
-    getPreviousOrNextDay(selectedDate, "next");
+  function handleChangeDay(type: "previous" | "next") {
+    // If date is today and button is clicked to go to next day, do nothing
+    if (isToday(selectedDate) && type === "next") {
+      return;
+    } else {
+      setPreviousOrNextDay(selectedDate, type);
+    }
   }
   
   // Style
@@ -32,10 +34,9 @@
 
 <div class="mapNav">
   <Button
-      disabled={isToday(selectedDate)}
       iconOnly
       inline
-      on:click={() => getPreviousDay()}
+      on:click={() => handleChangeDay("previous")}
       style={buttonsStyle}
     >
     <div class="icon" slot="icon">
@@ -53,9 +54,10 @@
     />
   </div>
   <Button
+    disabled={isToday(selectedDate)}
     iconOnly
     inline
-    on:click={() => getPreviousOrNextDay(selectedDate, 'next')}
+    on:click={() => handleChangeDay('next')}
     style={buttonsStyle}
   >
     <div class="icon" slot="icon">

@@ -10,8 +10,7 @@
 	import { onMount } from "svelte";
 
 	export let data: any;
-	console.log('# fetchedData :', data)
-	let fetchedReports = data.reports;
+	let fetchedReports = data.filteredReports;
 	for (const item of fetchedReports) {
 		reports.addReport(item);
 	}

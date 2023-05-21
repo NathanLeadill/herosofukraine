@@ -58,8 +58,6 @@ export function timeSinceUpdate(lastUpdated: Date) {
 	}
 }
 
-
-
 // Get main active report
 let allReports: ReportType | undefined;
 reports.subscribe(state => {
@@ -84,7 +82,7 @@ export function scrollCurtain() {
 }
 
 // Get previous or next day
-export function getPreviousOrNextDay(date: Date, previous: 'previous' | 'next') {
+export function setPreviousOrNextDay(date: Date, previous: 'previous' | 'next') {
 	const newDate = new Date(date);
 	if(previous === 'previous'){
 		newDate.setDate(newDate.getDate() - 1);

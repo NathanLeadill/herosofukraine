@@ -1,7 +1,7 @@
 <script lang='ts'>
 	import { timeSinceUpdate } from "$lib/helpers";
 	import { dummyReports } from "$lib/objects/dummyData";
-	import { reportState } from "$lib/stores";
+	import { reportState, reports } from "$lib/stores";
 	import type { ReportType } from "$models/report";
 	import Icon from "./icon.svelte";
   
@@ -9,13 +9,16 @@
   reportState.subscribe(state => {
     selectedReport = state.selectedReport;
   });
+
+  // Subscribe to reports store
+  let allReports: ReportType[] | undefined;
+  reports.subscribe(value => allReports = value);
   
   // Filter out the report that is currently being viewed
   $: excludedReportId = selectedReport?.id;
-  $: suggestedReports = Object.keys(dummyReports)
-    .filter(key => dummyReports[key].id !== excludedReportId)
-    .map(key => dummyReports[key]);
-
+  $: suggestedReports = allReports?.filter(report => report.id !== excludedReportId);
+  
+  
   // Update the selected report & scroll to top
   function updateReport(report: ReportType) {
     reportState.setSelectedReport(report);
@@ -42,49 +45,59 @@
 <!-- LIVE FEED -->
 <div class="reports-feed">
   <div class="reports-feed-separator" />
-  {#each suggestedReports as report}
-    <div 
-      class="report-feed-card"
-      on:click={() => updateReport(report)}
-      on:keydown={event => handleKeyDown(event, report)}
-    >
-      <div class="background-icon">
-        <Icon 
-          name={report.icon}
-          style="
-            fill: var(--primary);
-            flex-shrink: 0;
-            height: 200%;
-            opacity: 0.6;
-            position: absolute;
-            right: 0;
-            top: -50%;
-            transform: rotate(-20deg);
-            width: 50%;
-          "
-        />
-      </div>
-      <div class="top-side">
-        <div class="card-title-container">
-          <h4 class="card-title">
-            {report.title}
-          </h4>
+  {#if suggestedReports && suggestedReports.length === 0}
+    <p class="no-reports">
+      No reports found.
+    </p>
+  {:else if suggestedReports && suggestedReports.length > 0}
+    {#each suggestedReports as report}
+      <div 
+        class="report-feed-card"
+        on:click={() => updateReport(report)}
+        on:keydown={event => handleKeyDown(event, report)}
+      >
+        <div class="background-icon">
           <Icon 
-            name="link"
+            name={report.icon}
             style="
-              fill: var(--accent);
+              fill: var(--primary);
               flex-shrink: 0;
-              height: 22px;
-              width: 18px;
+              height: 200%;
+              opacity: 0.6;
+              position: absolute;
+              right: 0;
+              top: -50%;
+              transform: rotate(-20deg);
+              width: 50%;
             "
           />
         </div>
+        <div class="top-side">
+          <div class="card-title-container">
+            <h4 class="card-title">
+              {report.title}
+            </h4>
+            <Icon 
+              name="link"
+              style="
+                fill: var(--accent);
+                flex-shrink: 0;
+                height: 22px;
+                width: 18px;
+              "
+            />
+          </div>
+        </div>
+        <p class="card-date">
+          {timeSinceUpdate(new Date(report.date))}
+        </p>
       </div>
-      <p class="card-date">
-        {timeSinceUpdate(new Date(report.date))}
+    {/each}
+    {:else}
+      <p class="loading-reports">
+        Loading reports...
       </p>
-    </div>
-  {/each}
+  {/if}
 </div>
 
 <style>
