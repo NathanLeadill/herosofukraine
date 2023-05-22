@@ -1,17 +1,14 @@
 <script lang='ts'>
 	import { page } from "$app/stores";
-  import logo from "$images/logo-y.png";
 	import Icon from "./icon.svelte";
+	import Logo from "./logo.svelte";
   
   let user = true;
 </script>
 
 <div class="sidebar">
   <div class="topside">
-    <a class="logo-container" href="/">
-      Heroiam
-      <img class="logo" src={logo} alt="logo" /> Slava
-    </a>
+    <Logo />
     <div class="links-container">
       <a href="#" class="link" class:active={$page.url.pathname === "/"}>
         <Icon 
@@ -101,26 +98,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 18px;
+    padding: 22px;
     width: 280px;
     z-index: 9;
   }
-  .logo-container {
-		align-items: center;
-		color: var(--dark);
-		display: flex;
-		font-family: 'Rufina';
-		font-weight: 400;
-		font-size: 28px;
-		margin: 0 auto;
-		text-decoration: none;
-	}
-  .logo {
-		display: inline;
-		height: 42px;
-		margin: 0 10px;
-		width: 42px;
-	}
   .links-container {
     border-top: 2px solid var(--secondary-lighter);
     display: flex;

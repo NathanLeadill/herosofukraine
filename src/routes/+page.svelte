@@ -34,7 +34,9 @@
 	<ReportsFeed />
 </section>
 
-<MapNav />
+<div class="mapNav-container">
+	<MapNav />
+</div>
 <Curtain />
 <Sidebar />
 
@@ -46,6 +48,14 @@
 		flex: 0.6;
 		height: 0;
 	}
+	.mapNav-container {
+    bottom: 70px;
+    left: 0;
+		position: absolute;
+		right: 0;
+		z-index: 1;	
+	}
+
 	@media (min-width: 600px) {
 		section {
 			height: 100vh;
@@ -53,6 +63,13 @@
 			flex-direction: row-reverse;
 			justify-content: space-between;
 			flex: 1;
+		}
+		.mapNav-container {
+			bottom: calc(250px + 26px);
+			position: absolute;
+			left: auto;
+			right: 16px;
+			z-index: 1;
 		}
 	}
 </style>

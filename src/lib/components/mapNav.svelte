@@ -26,8 +26,26 @@
     background-color: rgba(96, 96, 96, 0.2);
     backdrop-filter: blur(10px) saturate(180%);
     border: 2px solid var(--primary);
-    border-radius: 10px;
-    padding: 5px 16px;
+    border-radius: var(--max-radius);
+    display: flex;
+    flex: 1;
+    height: 44px;
+    padding: 6px 10px;
+  `;
+  
+  const leftButtonStyle = `
+    ${buttonsStyle}
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    justify-content: start;
+  `;
+  const rightButtonStyle = `
+    ${buttonsStyle}
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    justify-content: end;
   `;
 
 </script>
@@ -37,7 +55,7 @@
       iconOnly
       inline
       on:click={() => handleChangeDay("previous")}
-      style={buttonsStyle}
+      style={leftButtonStyle}
     >
     <div class="icon" slot="icon">
       <Icon 
@@ -58,12 +76,15 @@
     iconOnly
     inline
     on:click={() => handleChangeDay('next')}
-    style={buttonsStyle}
+    style={rightButtonStyle}
   >
     <div class="icon" slot="icon">
       <Icon 
         name="chevron-up" 
-        style="transform: rotate(90deg);"
+        style={`
+          transform: rotate(90deg);
+          ${isToday(selectedDate) ? "opacity: 0.25;" : ""}
+        `}
       />
     </div>
   </Button>
@@ -73,31 +94,35 @@
   .mapNav {
     align-items: center;
     display: flex;
+    height: 44px;
     justify-content: space-around;
-    margin-top: 10px;
-    position: relative;
-    z-index: 1;
+    margin: 10px 18px;
+    justify-content: center;
   }
   @media (min-width: 600px) {
     .mapNav {
-      position: absolute;
-      right: 0;  
-      top: 100px;
+      margin: 0 auto;
+      justify-content: initial;
     }
   }
-
+  
   .icon {
     height: 28px;
     width: 28px;
+  }
+  .date {
+    flex: 1;
   }
   .date-input {
     background-color: rgba(96, 96, 96, 0.2);
     backdrop-filter: blur(10px) saturate(180%);
     border: 2px solid var(--primary);
-    border-radius: 10px;
+    border-left: none;
+    border-right: none;
     color: var(--secondary);
     font-size: 16px;
     font-weight: 500;
+    height: 44px;
     padding: 6px 18px;
     cursor: pointer;
     text-align: center;

@@ -4,6 +4,7 @@
 	import Icon from "./icon.svelte";
   import { timeSinceUpdate } from "$lib/helpers";
   import { reports } from '$lib/stores';
+	import MapNav from "./mapNav.svelte";
   
   // Subscribe to updates in the selectedReport store
   let selectedReport: ReportType | undefined;
@@ -16,7 +17,6 @@
   reports.subscribe((value) => {
     data = value;
   });
-  console.log('# store data (report.svelte):', data)
 
 </script>
 

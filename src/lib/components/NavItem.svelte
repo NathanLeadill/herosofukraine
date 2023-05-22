@@ -51,11 +51,4 @@
 		margin-top: 2px;
 		text-align: center;
 	}
-	/* 
-	:global(.icon-container.active svg) {
-		fill: var(--accent);
-	}
-	:global(.icon-container:not(.active) svg) {
-		fill: var(--secondary-light) !important;
-	} */
 </style>

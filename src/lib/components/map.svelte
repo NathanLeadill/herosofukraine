@@ -227,6 +227,7 @@
 <style>
   @import 'leaflet/dist/leaflet.css';
   #map {
+    background-color: var(--primary);
     height: calc(100vh - 46px);
     max-width: 100%;
     position: absolute;

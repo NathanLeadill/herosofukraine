@@ -37,6 +37,7 @@ function selectedReportStore() {
 
 // selectedDate store
 const selectedDateStore = writable<Date>(new Date());
+export const dateState = selectedDateStore;
 
 // Desktop or mobile store
 const mobileThreshold = 600;
@@ -54,6 +55,7 @@ if(browser) {
     });
   });
 }
+export const viewportState = viewport;
 
 // Reports store
 function reportsStore() {
@@ -84,6 +86,4 @@ function reportsStore() {
 
 export const curtainState = toggleCurtain(false);
 export const reportState = selectedReportStore();
-export const dateState = selectedDateStore;
-export const viewportState = viewport;
 export const reports = reportsStore();

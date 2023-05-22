@@ -113,7 +113,6 @@
 		border: 1px solid var(--primary-light);
 		color: var(--primary-inverse);
 		cursor: not-allowed;
-		opacity: 0.65;
 	}
 	
 	.invisible, 

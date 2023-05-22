@@ -8,7 +8,6 @@ export async function load({ params, query }) {
   
   const filteredReports = response
     .map((report: any, index: number) => {
-      console.log('# report :', report)
       const randomLat = Math.floor(Math.random() * (53 - 44 + 1)) + 44;
       const randomLng = Math.floor(Math.random() * (44 - 32 + 1)) + 32;
       return {
@@ -32,7 +31,6 @@ export async function load({ params, query }) {
   Object.values(archivedReports).map((report: ReportType) => {
     filteredReports.push(report);
   });
-  console.log('# filteredReports :', filteredReports)
   return { filteredReports };
 }
 

@@ -1,4 +1,5 @@
 type IconType = 
+  'logo-transparent' |
   "globe" | 
   "image" |
   "rose" |
