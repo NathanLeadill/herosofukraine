@@ -30,10 +30,24 @@
 		font-size: 32px;
     justify-content: center;
 		margin: 0 auto;
-		text-decoration: none;
+    position: relative;
+    text-decoration: none;
 	}
+  .logo-container::after {
+    background: var(--secondary);
+    border-radius: var(--max-radius);
+    content: "alpha";
+    font-size: 12px;
+    font-weight: 800;
+    font-family: Poppins;
+    font-weight: 400;
+    padding: 0 8px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+  }
   .logo-fusioned {
-    padding: 12px 0;
+    padding: 8px 0;
     width: calc(100% - 44px - 72px);
   }
   .logo-solo {
@@ -42,6 +56,10 @@
   @media (min-width: 600px) {
     .logo-container {
       
+    }
+    .logo-container::after {
+      right: 0;
+      top: 0;
     }
     .logo-fusioned {
       width: calc(270px - 44px);

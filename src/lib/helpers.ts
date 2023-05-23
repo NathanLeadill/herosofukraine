@@ -1,6 +1,5 @@
 import type { ReportType } from '$models/report';
 import type { RequestEvent } from '../routes/api/fetch-heros/$types';
-import { dummyReports } from './objects/dummyData';
 import { dateState, reports } from './stores';
 
 export function jsonResponse<T>(data: T, status = 200): Response {

@@ -2,21 +2,45 @@
 	import { page } from '$app/stores';
 	import { iconNames } from '$lib/objects/icons';
 	import type { IconType } from '$models/icon';
+	import { onMount } from 'svelte';
 	import Icon from './icon.svelte';
 	export let label: string;
 	export let pageName: string;
 	$: activePage = $page.url.pathname === `/${pageName}`;
 	$: color = activePage ? '--accent' : '--secondary-light';
 	$: iconName = iconNames[label as keyof typeof iconNames] as IconType;
+	$: console.log('# iconName :', iconName)
+
+	// check if mobile
+	$: isMobile = false;
+	onMount(() => {
+		isMobile = window.innerWidth < 600;
+	});
+
+	// give different styles for mobile and desktop
+	$: style = `
+		padding-top: ${isMobile ? '8px' : '0'};
+		fill: var(${isMobile ? color : 
+			(activePage ? '--secondary' : '--secondary-light')
+		});
+		width: ${isMobile ? '24px' : '28px'};
+	`;
+
 </script>
 
 <a href={`/${pageName}`} class:active={activePage} class="icon-container">
-	<Icon name={iconName} {color} style={`width: 24px; padding-top: 8px; fill: var(${color})`} />
-	<span class="icon-subtext"> {label} </span>
+	<Icon 
+		{color} 
+		name={iconName} 
+		{style} 
+	/>
+	<span class="icon-subtext">
+		{label}
+	</span>
 </a>
 
 <style>
-	.active :global(span) {
+	.active span {
 		color: var(--accent);
 	}
 	.icon-container {
@@ -50,5 +74,33 @@
 		font-weight: 400;
 		margin-top: 2px;
 		text-align: center;
+	}
+
+	@media (min-width: 600px) {
+		.icon-container {
+			border-radius: 10px;
+			flex-direction: row;
+			margin-bottom: 16px;
+			padding: 10px 16px;
+			width: 100%;
+		}
+		.active {
+			background-color: var(--primary-lighter);
+		}
+		.icon-subtext {
+			font-size: 16px;
+			padding-left: 16px;
+		}
+		.active:before {
+			background: var(--accent);
+			border-radius: 10px 0 0 10px;
+			content: "";
+			height: 100%;
+			right: -22px;
+			width: 4px;
+		}
+		.active span {
+			color: var(--secondary);
+		}
 	}
 </style>

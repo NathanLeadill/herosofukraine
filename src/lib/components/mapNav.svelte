@@ -2,6 +2,7 @@
 	import { browser } from "$app/environment";
 	import { setPreviousOrNextDay, isToday } from "$lib/helpers";
 	import { dateState } from "$lib/stores";
+	import { onMount } from "svelte";
 	import Button from "./button.svelte";
 	import Icon from "./icon.svelte";
   
@@ -20,33 +21,50 @@
     }
   }
   
-  // Style
-  const buttonsStyle = `
-    border: none;
-    background-color: rgba(96, 96, 96, 0.2);
-    backdrop-filter: blur(10px) saturate(180%);
-    border: 2px solid var(--primary);
+  $: isMobile = false;
+  onMount(() => {
+    isMobile = window.innerWidth < 600;
+  })
+
+  $: buttonsStyle = `
     border-radius: var(--max-radius);
     display: flex;
     flex: 1;
     height: 44px;
     padding: 6px 10px;
+    ${isMobile ? 'background-color: rgba(96, 96, 96, 0.2);' : 'background-color: transparent;'}
+    ${isMobile ? 'backdrop-filter: blur(10px) saturate(180%);' : ''}
+    ${isMobile ? 'border: 2px solid var(--primary);' : 'border: none;'}
   `;
-  
-  const leftButtonStyle = `
+  $: leftButtonStyle = `
     ${buttonsStyle}
     border-right: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     justify-content: start;
   `;
-  const rightButtonStyle = `
+  $: rightButtonStyle = `
     ${buttonsStyle}
     border-left: none;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     justify-content: end;
   `;
+
+  $: buttonsIconStyle = `
+    height: 24px;
+    width: 24px; 
+    ${isMobile ? 'fill: var(--secondary);' : 'fill: var(--accent);'}
+  `
+  $: leftButtonIconStyle = `
+    ${buttonsIconStyle}
+    transform: rotate(-90deg);
+  `
+  $: rightButtonIconStyle = `
+    ${buttonsIconStyle}
+    transform: rotate(90deg);
+    ${isToday(selectedDate) ? "opacity: 0.5;" : ""}
+  `
 
 </script>
 
@@ -60,7 +78,7 @@
     <div class="icon" slot="icon">
       <Icon 
         name="chevron-up" 
-        style="transform: rotate(-90deg);"
+        style={leftButtonIconStyle}
       />
     </div>
   </Button>
@@ -81,10 +99,7 @@
     <div class="icon" slot="icon">
       <Icon 
         name="chevron-up" 
-        style={`
-          transform: rotate(90deg);
-          ${isToday(selectedDate) ? "opacity: 0.25;" : ""}
-        `}
+        style={rightButtonIconStyle}
       />
     </div>
   </Button>
@@ -98,12 +113,6 @@
     justify-content: space-around;
     margin: 10px 18px;
     justify-content: center;
-  }
-  @media (min-width: 600px) {
-    .mapNav {
-      margin: 0 auto;
-      justify-content: initial;
-    }
   }
   
   .icon {
@@ -120,11 +129,11 @@
     border-left: none;
     border-right: none;
     color: var(--secondary);
-    font-size: 16px;
+    cursor: pointer;
+    font-size: 14px;
     font-weight: 500;
     height: 44px;
     padding: 6px 18px;
-    cursor: pointer;
     text-align: center;
     transition: al ease .3s;
     outline: 2px solid transparent;
@@ -134,5 +143,31 @@
   .date-input:focus {
     outline: 2px solid var(--accent);
     transition: all ease .3s;
+  }
+  
+  @media (min-width: 600px) {
+    .mapNav {
+      margin: 0 auto;
+      position: relative;
+      justify-content: space-between;
+      width: calc(492px - 36px);
+    }
+    .date-input {
+      background: transparent;
+      backdrop-filter: none;
+      border: none;
+      border-radius: 10px;
+    }
+    .date::before {
+      background-color: var(--accent);
+      border-radius: 10px;
+      bottom: 0;
+      content: "";
+      height: 4px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      width: 4px;
+    }
   }
 </style>

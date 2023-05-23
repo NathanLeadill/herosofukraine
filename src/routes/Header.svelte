@@ -1,6 +1,7 @@
 <script lang="ts">
 	import NavItem from '$components/NavItem.svelte';
 	import Logo from '$components/logo.svelte';
+	import MapNav from '$components/mapNav.svelte';
 	import logo from "../lib/images/logo-y.png";
 </script>
 
@@ -10,6 +11,7 @@
 		<Logo />
 		<div class="nav">
 			<NavItem pageName="" label={'Home'} />
+			<NavItem pageName="stats" label={'Stats'} />
 			<NavItem pageName="media" label={'Media'} />
 			<NavItem pageName="memorial" label={'Memorial'} />
 			<NavItem pageName="profile" label={'Profile'} />
@@ -17,7 +19,9 @@
 	</div>
 	<!-- Desktop Header -->
 	<div class="desktop-header">
-		Header
+		<div class="mapNav-container">
+			<MapNav />
+		</div>
 	</div>
 </header>
 
@@ -67,7 +71,9 @@
 	}
 	@media (min-width: 600px) {
 		.desktop-header {
+			align-items: center;
 			display: flex;
+			height: 100px;
 			justify-content: space-between;
 			margin: 0 auto;
 			padding: 18px 48px;

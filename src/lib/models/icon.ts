@@ -6,7 +6,8 @@ type IconType =
   "user" |
   "chevron-up" |
   "link" |
-  "marker"
+  "marker" |
+  "stats"
 ;
 
 export type { IconType };

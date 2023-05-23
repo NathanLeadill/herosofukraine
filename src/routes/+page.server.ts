@@ -14,7 +14,7 @@ export async function load({ params, query }) {
         id: nanoid(),
         title: report.title,
         description: report.description,
-        icon: report.title.includes('civilian') ? 'rose' : 'globe',
+        icon: report.title.includes('the') ? 'rose' : 'globe',
         images: report.url ? [{ 
           id: nanoid(), 
           url: report.url 

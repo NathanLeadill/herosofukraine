@@ -1,5 +1,6 @@
 <script lang='ts'>
 	import { page } from "$app/stores";
+	import NavItem from "./NavItem.svelte";
 	import Icon from "./icon.svelte";
 	import Logo from "./logo.svelte";
   
@@ -10,42 +11,10 @@
   <div class="topside">
     <Logo />
     <div class="links-container">
-      <a href="#" class="link" class:active={$page.url.pathname === "/"}>
-        <Icon 
-          name="globe" 
-          style="
-            {$page.url.pathname === "/" ? "fill: var(--secondary);" : "fill: var(--secondary-light);"}
-            height: 24px;
-            margin-right: 12px;
-            width: 24px;
-          "
-        />
-        <span class="label">Home</span>
-      </a>
-      <a href="#" class="link" class:active={$page.url.pathname === "/media"}>
-        <Icon 
-          name="image" 
-          style="
-            {$page.url.pathname === "/media" ? "fill: var(--secondary);" : "fill: var(--secondary-light);"}
-            height: 24px;
-            margin-right: 12px;
-            width: 24px;
-          "
-        />
-        <span class="label">Media</span>
-      </a>
-      <a href="#" class="link" class:active={$page.url.pathname === "/memorial"}>
-        <Icon 
-          name="rose" 
-          style="
-            {$page.url.pathname === "/memorial" ? "fill: var(--secondary);" : "fill: var(--secondary-light);"}
-            height: 24px;
-            margin-right: 12px;
-            width: 24px;
-          "
-        />
-        <span class="label">Memorial</span>
-      </a>
+      <NavItem pageName="" label="Home" />
+      <NavItem pageName="stats" label="Stats" />
+      <NavItem pageName="media" label="Media" />
+      <NavItem pageName="memorial" label="Memorial" />
     </div>
   </div>
   <div class="sidebar-footer">

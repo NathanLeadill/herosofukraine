@@ -65,11 +65,7 @@
 			flex: 1;
 		}
 		.mapNav-container {
-			bottom: calc(250px + 26px);
-			position: absolute;
-			left: auto;
-			right: 16px;
-			z-index: 1;
+			display: none;
 		}
 	}
 </style>

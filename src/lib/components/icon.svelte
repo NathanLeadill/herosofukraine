@@ -6,6 +6,7 @@
 	import LogoTransparent from './icons/LogoTransparent.svelte';
 	import Photo from './icons/Photo.svelte';
 	import Rose from './icons/Rose.svelte';
+	import Stats from './icons/Stats.svelte';
 	import User from './icons/User.svelte';
 
 	export let name: IconType;
@@ -30,6 +31,8 @@
 	<Link {styled} />
 {:else if name === 'logo-transparent'}
 	<LogoTransparent {styled} />
+{:else if name === 'stats'}
+	<Stats {styled} />
 {/if}
 
 <style>

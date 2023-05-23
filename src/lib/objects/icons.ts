@@ -15,5 +15,6 @@ export const iconNames = {
 	Home: 'globe',
 	Media: 'image',
 	Memorial: 'rose',
-	Profile: 'user'
+	Profile: 'user',
+	Stats: 'stats',
 };
