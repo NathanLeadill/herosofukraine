@@ -70,6 +70,14 @@
 		display: none;
 	}
 	@media (min-width: 600px) {
+		.mapNav-container {
+			backdrop-filter: blur(16px);
+			background: rgba(21, 22, 20, 0.5);
+			border-bottom-right-radius: 32px;
+			box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+			padding: 32px 0px 18px 48px;
+			width: 492px;
+		}
 		.desktop-header {
 			align-items: center;
 			display: flex;
@@ -77,9 +85,11 @@
 			justify-content: space-between;
 			margin: 0 auto;
 			padding: 18px 48px;
+			padding-top: 0;
+			padding-left: 0;
 			position: absolute;
-			left: 280px;
-			width: calc(100vw - 300px);
+			left: 260px;
+			width: calc(100vw - 260px);
 		}
 		.desktop-header .sidebar-on {
 			margin-left: 0;

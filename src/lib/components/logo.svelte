@@ -62,7 +62,7 @@
       top: 0;
     }
     .logo-fusioned {
-      width: calc(270px - 44px);
+      width: calc(260px - 44px);
     }
   }
 </style>

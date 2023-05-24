@@ -69,15 +69,15 @@
       flex-direction: column;
       height: calc(100vh - 250px);
       left: 0;
+      overflow: auto;
       padding-top: calc(100px + 18px);
       padding-left: 48px;
       position: absolute;
-      max-width: 492px;
+      width: 492px;
       z-index: 2;
     }
     .description-container {
       max-height: calc(100% - 50px);
-      overflow: auto;
     }
     .title {
       font-size: 28px;

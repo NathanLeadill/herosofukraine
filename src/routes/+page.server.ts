@@ -1,4 +1,4 @@
-import { dummyReports } from '$lib/objects/dummyData';
+import { dummyImages, dummyReports } from '$lib/objects/dummyData';
 import type { ReportType } from '$models/report';
 import { nanoid } from 'nanoid';
 
@@ -13,11 +13,12 @@ export async function load({ params, query }) {
       return {
         id: nanoid(),
         title: report.title,
-        description: report.description,
+        // description: report.description,
+        description: report.title,
         icon: report.title.includes('the') ? 'rose' : 'globe',
         images: report.url ? [{ 
           id: nanoid(), 
-          url: report.url 
+          url: dummyImages[Math.floor(Math.random() * dummyImages.length)], 
         }] : [],
         location: [randomLat, randomLng],
         date: new Date(report.created),

@@ -170,6 +170,7 @@
   
   @media (min-width: 600px) {
     .reports-feed {
+      background: var(--primary);
       bottom: 0;
       flex-direction: row;
       flex-wrap: wrap;
@@ -179,6 +180,7 @@
       overflow: auto;
       padding: 16px 48px;
       position: absolute;
+      z-index: 3;
     }
     .reports-feed-separator {
       display: none;

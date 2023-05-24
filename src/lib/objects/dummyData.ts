@@ -5,6 +5,13 @@ type ReportsType = {
   [key: string]: ReportType;
 }
 
+export const dummyImages = [
+  'https://i.imgur.com/SjfzTQC.jpg',
+  'https://i.imgur.com/gdtHIiR.jpg',
+  'https://i.imgur.com/HPgongV.jpg',
+  'https://i.imgur.com/Sz9dIJf.png',
+]
+
 // Data
 export const dummyReports: ReportsType = {
   report1: {

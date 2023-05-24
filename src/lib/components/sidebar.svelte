@@ -80,7 +80,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 22px;
-    width: 280px;
+    width: 260px;
     z-index: 9;
   }
   .links-container {
@@ -134,7 +134,7 @@
     flex: 1;
     font-size: 14px;
     justify-content: center;
-    margin: 4px 4px;
+    margin: 4px 0;
     padding: 8px 8px;
     text-decoration: none;
     transition: all ease .2s;

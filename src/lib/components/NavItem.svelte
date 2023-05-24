@@ -23,7 +23,7 @@
 		fill: var(${isMobile ? color : 
 			(activePage ? '--secondary' : '--secondary-light')
 		});
-		width: ${isMobile ? '24px' : '28px'};
+		width: 24px;
 	`;
 
 </script>
@@ -91,7 +91,7 @@
 			background-color: var(--primary-lighter);
 		}
 		.icon-subtext {
-			font-size: 16px;
+			font-size: 14px;
 			padding-left: 16px;
 		}
 		.comingSoon::after {

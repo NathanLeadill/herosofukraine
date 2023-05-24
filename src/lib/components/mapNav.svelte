@@ -151,7 +151,6 @@
       margin: 0 auto;
       position: relative;
       justify-content: space-between;
-      width: calc(492px - 36px);
     }
     .date-input {
       background: transparent;

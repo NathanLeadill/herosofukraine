@@ -244,7 +244,7 @@
       width: 100%;
 		}
     #map:after {
-      background: linear-gradient(90deg, var(--primary) 20%, rgba(21, 22, 20, 0.8) 40%, rgba(21, 22, 20, 0) 60%, transparent 100%);
+      background: linear-gradient(90deg, var(--primary) calc(492px - 60px), rgba(21, 22, 20, 0.8) 492px, rgba(21, 22, 20, 0) calc(492px + 120px), transparent 100%);
       content: "";
       display: block;
       height: 100%;

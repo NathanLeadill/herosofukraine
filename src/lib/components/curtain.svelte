@@ -180,7 +180,7 @@
   }
 	
 	.curtainActive {
-		bottom: calc(100% - 121px);
+		bottom: calc(100% - 118px);
 		transition: all .3s ease;
 	}
 	.curtain {
