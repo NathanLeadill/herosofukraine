@@ -32,6 +32,7 @@
 		margin: 0 auto;
     position: relative;
     text-decoration: none;
+    width: 200px;
 	}
   .logo-container::after {
     background: var(--secondary);
@@ -43,25 +44,26 @@
     font-weight: 400;
     padding: 0 8px;
     position: absolute;
-    right: 6px;
-    top: 6px;
+    right: 0px;
+    top: 4px;
   }
   .logo-fusioned {
-    padding: 8px 0;
-    width: calc(100% - 44px - 72px);
+    padding: 12px 0 8px;
+    width: 200px;
   }
   .logo-solo {
     display: none;
   }
   @media (min-width: 600px) {
     .logo-container {
-      
+      width: auto;
     }
     .logo-container::after {
       right: 0;
       top: 0;
     }
     .logo-fusioned {
+      padding: 8px 0;
       width: calc(260px - 44px);
     }
   }

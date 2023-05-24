@@ -95,7 +95,7 @@
   }
 	
 	.curtainActive {
-		bottom: calc(100% - 118px);
+		bottom: calc(100% - 121px);
 		transition: all .3s ease;
 	}
 	.curtain {

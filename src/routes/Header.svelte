@@ -46,18 +46,6 @@
 		width: 100%;
 	}
 	
-	@media (min-width: 600px) {
-		header {
-			background-color: transparent;
-			box-shadow: none;
-			padding: 0;
-			position: absolute;
-		}
-		.mobile {
-			display: none;
-		}
-	}
-	
 	:global(.icon-container.active svg) {
 		fill: var(--accent);
 	}
@@ -70,6 +58,15 @@
 		display: none;
 	}
 	@media (min-width: 600px) {
+		header {
+			background-color: transparent;
+			box-shadow: none;
+			padding: 0;
+			position: absolute;
+		}
+		.mobile {
+			display: none;
+		}
 		.mapNav-container {
 			backdrop-filter: blur(16px);
 			background: rgba(21, 22, 20, 0.5);

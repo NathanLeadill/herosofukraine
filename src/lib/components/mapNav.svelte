@@ -40,7 +40,7 @@
     flex: 1;
     height: 44px;
     padding: 6px 0px;
-    ${isMobile ? 'background-color: rgba(96, 96, 96, 0.2);' : 'background-color: transparent;'}
+    ${isMobile ? 'background-color: rgba(21, 22, 20, 0.2);' : 'background-color: transparent;'}
     ${isMobile ? 'backdrop-filter: blur(10px) saturate(180%);' : ''}
     ${isMobile ? 'border: 2px solid var(--primary);' : 'border: none;'}
   `;
@@ -137,15 +137,35 @@
     flex-direction: column;
     position: relative;
   }
+  .day {
+    background-color: var(--primary);
+    border-top-left-radius: var(--max-radius);
+    border-top-right-radius: var(--max-radius);
+    background-color: rgba(21, 22, 20, 0.5);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 2px solid var(--primary);
+    border-bottom: none;
+    
+    color: var(--secondary);
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 150px;
+    padding: 4px 16px;
+    position: absolute;
+    text-align: center;
+    top: calc(50% - 39px);
+    transform: translateY(-50%);
+    z-index: 1;
+  }
   .date-input {
-    background-color: rgba(96, 96, 96, 0.2);
-    backdrop-filter: blur(10px) saturate(180%);
+    background-color: rgba(21, 22, 20, 0.2);
+    backdrop-filter: blur(16px) saturate(180%);
     border: 2px solid var(--primary);
     border-left: none;
     border-right: none;
     color: var(--secondary);
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     height: 44px;
     padding: 6px 18px;
@@ -171,6 +191,22 @@
     .date {
       height: 100%;
     }
+    .day {
+      border-radius: 0;
+      background-color: transparent;
+      backdrop-filter: none;
+      border: none;
+      color: var(--secondary);
+      font-size: 16px;
+      font-weight: 500;
+      min-width: 150px;
+      padding: 4px 16px;
+      position: absolute;
+      text-align: center;
+      top: calc(50% - 28px);
+      transform: translateY(-50%);
+      z-index: 1;
+    }
     .date-input {
       background: transparent;
       backdrop-filter: none;
@@ -186,22 +222,13 @@
     .date::before {
       background-color: var(--accent);
       border-radius: 10px;
-      bottom: calc(50% - 30px);
+      bottom: calc(50% - 28px);
       content: "";
       height: 4px;
       left: 50%;
       position: absolute;
       transform: translateX(-50%);
       width: 18px;
-    }
-    .day {
-      color: var(--secondary);
-      font-size: 16px;
-      font-weight: 500;
-      position: absolute;
-      top: calc(50% - 28px);
-      transform: translateY(-50%);
-      z-index: 1;
     }
     .icon {
       align-items: center;

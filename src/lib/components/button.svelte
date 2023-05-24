@@ -49,13 +49,14 @@
 	}
 	button:focus,
 	button:hover {
-		background-color: var(--accent);
+		background-color: var(--accent-hover);
 		border: 1px solid transparent;
 		outline: none;
-		opacity: 0.7;
 	}
 	button:active {
-		opacity: 0.65;
+		background-color: var(--accent-click);
+		border: 1px solid transparent;
+		outline: none;
 	}
 	.transparent {
 		background-color: transparent;
