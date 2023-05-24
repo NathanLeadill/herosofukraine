@@ -30,7 +30,9 @@
 </svelte:head>
 <section>
 	<Map />
-	<Report />
+	<div class="report-container">
+		<Report />
+	</div>
 	<ReportsFeed />
 </section>
 
@@ -48,6 +50,10 @@
 		flex: 0.6;
 		height: 0;
 	}
+
+	.report-container {
+		display: none;
+	}
 	.mapNav-container {
     bottom: 70px;
     left: 0;
@@ -63,6 +69,19 @@
 			flex-direction: row-reverse;
 			justify-content: space-between;
 			flex: 1;
+		}
+		.report-container {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 250px);
+      left: 0;
+      overflow: auto;
+      padding-top: calc(100px + 18px);
+      padding-left: 48px;
+      padding-right: 48px;
+      position: absolute;
+      width: 564px;
+      z-index: 2;
 		}
 		.mapNav-container {
 			display: none;

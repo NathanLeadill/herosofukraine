@@ -44,7 +44,8 @@ export function timeSinceUpdate(lastUpdated: Date) {
 
 	// Display the result
 	if (diffHours > 0 && diffHours < 24) {
-		return `Today at ${lastUpdated.toLocaleString(undefined, { hour: 'numeric', hour12: true })}`
+		// return `Today at ${lastUpdated.toLocaleString(undefined, { hour: 'numeric', hour12: true })}`
+		return `${diffHours} hours ago`
 	} else if (diffMinutes > 0 && diffMinutes < 60) {
 		return `${diffMinutes} minutes ago`
 	} else if (diffSeconds > 0 && diffSeconds < 60) {

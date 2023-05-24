@@ -171,6 +171,7 @@
   @media (min-width: 600px) {
     .reports-feed {
       background: var(--primary);
+      box-shadow: 0 0 6px #00000082;
       bottom: 0;
       flex-direction: row;
       flex-wrap: wrap;

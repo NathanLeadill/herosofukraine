@@ -75,8 +75,10 @@
 			background: rgba(21, 22, 20, 0.5);
 			border-bottom-right-radius: 32px;
 			box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
-			padding: 32px 0px 18px 48px;
-			width: 492px;
+			display: flex;
+			height: 100%;
+			padding: 0px 48px;
+			width: 564px;
 		}
 		.desktop-header {
 			align-items: center;
@@ -84,7 +86,7 @@
 			height: 100px;
 			justify-content: space-between;
 			margin: 0 auto;
-			padding: 18px 48px;
+			padding: 0px 48px;
 			padding-top: 0;
 			padding-left: 0;
 			position: absolute;

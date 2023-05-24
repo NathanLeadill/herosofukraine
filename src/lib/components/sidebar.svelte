@@ -5,6 +5,13 @@
 	import Logo from "./logo.svelte";
   
   let user = false;
+
+  $: iconStyle = `
+    fill: var(--secondary-light);
+    height: 24px;
+    margin-right: 8px;
+    width: 24px;
+  `;
 </script>
 
 <div class="sidebar">
@@ -22,24 +29,14 @@
       <a href="#" class="btn">
         <Icon 
           name="user" 
-          style="
-            fill: var(--secondary-light);
-            height: 24px;
-            margin-right: 12px;
-            width: 24px;
-          "
+          style={iconStyle}
         />
         <span class="label">Profile</span>
       </a>
       <a href="#" class="btn">
         <Icon 
           name="chevron-up" 
-          style="
-            fill: var(--secondary-light);
-            height: 24px;
-            margin-right: 12px;
-            width: 24px;
-          "
+          style={iconStyle}
         />
         <span class="label">Logout</span>
       </a>
@@ -50,7 +47,7 @@
           style="
             fill: var(--secondary-light);
             height: 24px;
-            margin-right: 12px;
+            margin-right: 10px;
             width: 24px;
           "
         />
@@ -59,12 +56,7 @@
       <a href="#" class="btn">
         <Icon 
           name="login" 
-          style="
-            fill: var(--secondary-light);
-            height: 24px;
-            margin-right: 12px;
-            width: 24px;
-          "
+          style={iconStyle}
         />
         <span class="label">Sign up</span>
       </a>

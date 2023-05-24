@@ -25,6 +25,13 @@
   onMount(() => {
     isMobile = window.innerWidth < 600;
   })
+  
+  $: day = (
+    // if today display today else display the day of the week
+    isToday(selectedDate)
+      ? "Today"
+      : selectedDate.toLocaleDateString("en-US", { weekday: "long" })
+  )
 
   $: buttonsStyle = `
     align-items: center;
@@ -32,7 +39,7 @@
     display: flex;
     flex: 1;
     height: 44px;
-    padding: 6px 10px;
+    padding: 6px 0px;
     ${isMobile ? 'background-color: rgba(96, 96, 96, 0.2);' : 'background-color: transparent;'}
     ${isMobile ? 'backdrop-filter: blur(10px) saturate(180%);' : ''}
     ${isMobile ? 'border: 2px solid var(--primary);' : 'border: none;'}
@@ -51,7 +58,7 @@
     border-bottom-left-radius: 0;
     justify-content: end;
   `;
-
+  
   $: buttonsIconStyle = `
     height: 24px;
     width: 24px; 
@@ -84,6 +91,9 @@
     </div>
   </Button>
   <div class="date">
+    <span class="day">
+      {day}
+    </span>
     <input
       class="date-input"
       type="date"
@@ -121,7 +131,11 @@
     width: 28px;
   }
   .date {
+    align-items: center;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
   .date-input {
     background-color: rgba(96, 96, 96, 0.2);
@@ -131,7 +145,7 @@
     border-right: none;
     color: var(--secondary);
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     height: 44px;
     padding: 6px 18px;
@@ -148,26 +162,46 @@
   
   @media (min-width: 600px) {
     .mapNav {
+      height: auto;
       margin: 0 auto;
       position: relative;
       justify-content: space-between;
+      width: 100%;
+    }
+    .date {
+      height: 100%;
     }
     .date-input {
       background: transparent;
       backdrop-filter: none;
       border: none;
       border-radius: 10px;
+      font-size: 14px;
+      height: auto;
+      margin: auto;
+      padding: 28px 4px;
+      width: 132px;
+      z-index: 2;
     }
     .date::before {
       background-color: var(--accent);
       border-radius: 10px;
-      bottom: 0;
+      bottom: calc(50% - 30px);
       content: "";
       height: 4px;
       left: 50%;
       position: absolute;
       transform: translateX(-50%);
-      width: 4px;
+      width: 18px;
+    }
+    .day {
+      color: var(--secondary);
+      font-size: 16px;
+      font-weight: 500;
+      position: absolute;
+      top: calc(50% - 28px);
+      transform: translateY(-50%);
+      z-index: 1;
     }
     .icon {
       align-items: center;
