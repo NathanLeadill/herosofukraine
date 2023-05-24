@@ -27,6 +27,7 @@
   })
 
   $: buttonsStyle = `
+    align-items: center;
     border-radius: var(--max-radius);
     display: flex;
     flex: 1;
@@ -168,6 +169,10 @@
       position: absolute;
       transform: translateX(-50%);
       width: 4px;
+    }
+    .icon {
+      align-items: center;
+      display: flex;
     }
   }
 </style>

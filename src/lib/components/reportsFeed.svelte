@@ -107,6 +107,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin-top: 16px;
+    overflow: initial;
     padding-top: 24px;
   }
   .reports-feed-separator {
@@ -166,7 +167,7 @@
     margin: 0;
     position: relative;
   }
-
+  
   @media (min-width: 600px) {
     .reports-feed {
       bottom: 0;
@@ -175,6 +176,7 @@
       height: 250px;
       justify-content: space-between;
       margin-top: 0;
+      overflow: auto;
       padding: 16px 48px;
       position: absolute;
     }

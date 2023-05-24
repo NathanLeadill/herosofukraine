@@ -6,17 +6,17 @@
 	import Icon from './icon.svelte';
 	export let label: string;
 	export let pageName: string;
+	export let comingSoon: boolean = false;
 	$: activePage = $page.url.pathname === `/${pageName}`;
 	$: color = activePage ? '--accent' : '--secondary-light';
 	$: iconName = iconNames[label as keyof typeof iconNames] as IconType;
-	$: console.log('# iconName :', iconName)
-
+	
 	// check if mobile
 	$: isMobile = false;
 	onMount(() => {
 		isMobile = window.innerWidth < 600;
 	});
-
+	
 	// give different styles for mobile and desktop
 	$: style = `
 		padding-top: ${isMobile ? '8px' : '0'};
@@ -34,7 +34,10 @@
 		name={iconName} 
 		{style} 
 	/>
-	<span class="icon-subtext">
+	<span 
+		class="icon-subtext"
+		class:comingSoon={comingSoon}
+	>
 		{label}
 	</span>
 </a>
@@ -90,6 +93,16 @@
 		.icon-subtext {
 			font-size: 16px;
 			padding-left: 16px;
+		}
+		.comingSoon::after {
+			bottom: 50%;
+			content: "(Coming Soon)";
+			color: var(--secondary-light);
+			font-size: 10px;
+			font-style: italic;
+			position: absolute;
+			right: 0;
+			transform: translateY(50%);
 		}
 		.active:before {
 			background: var(--accent);

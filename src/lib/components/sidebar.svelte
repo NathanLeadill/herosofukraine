@@ -4,7 +4,7 @@
 	import Icon from "./icon.svelte";
 	import Logo from "./logo.svelte";
   
-  let user = true;
+  let user = false;
 </script>
 
 <div class="sidebar">
@@ -12,9 +12,9 @@
     <Logo />
     <div class="links-container">
       <NavItem pageName="" label="Home" />
-      <NavItem pageName="stats" label="Stats" />
-      <NavItem pageName="media" label="Media" />
-      <NavItem pageName="memorial" label="Memorial" />
+      <NavItem comingSoon pageName="stats" label="Stats" />
+      <NavItem comingSoon pageName="media" label="Media" />
+      <NavItem comingSoon pageName="memorial" label="Memorial" />
     </div>
   </div>
   <div class="sidebar-footer">
@@ -44,9 +44,9 @@
         <span class="label">Logout</span>
       </a>
     {:else}
-      <a href="#" class="link">
+      <a href="#" class="btn">
         <Icon 
-          name="rose" 
+          name="user" 
           style="
             fill: var(--secondary-light);
             height: 24px;
@@ -55,6 +55,18 @@
           "
         />
         <span class="label">Login</span>
+      </a>
+      <a href="#" class="btn">
+        <Icon 
+          name="login" 
+          style="
+            fill: var(--secondary-light);
+            height: 24px;
+            margin-right: 12px;
+            width: 24px;
+          "
+        />
+        <span class="label">Sign up</span>
       </a>
     {/if}
   </div>
@@ -112,15 +124,24 @@
     flex-direction: row;
     margin-top: 24px;
     padding: 2px;
+    justify-content: space-around;
   }
   .btn {
     align-items: center;
     border-radius: 10px;
     color: var(--secondary-light);
     display: flex;
+    flex: 1;
     font-size: 14px;
-    padding: 10px 16px;
+    justify-content: center;
+    margin: 4px 4px;
+    padding: 8px 8px;
     text-decoration: none;
+    transition: all ease .2s;
+  }
+  .btn:hover {
+    background: var(--primary-lighter);
+    opacity: 0.75;
     transition: all ease .2s;
   }
 </style>

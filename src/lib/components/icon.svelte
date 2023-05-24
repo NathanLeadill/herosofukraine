@@ -3,6 +3,7 @@
 	import Chevron from './icons/Chevron.svelte';
 	import Globe from './icons/Globe.svelte';
 	import Link from './icons/Link.svelte';
+	import Login from './icons/Login.svelte';
 	import LogoTransparent from './icons/LogoTransparent.svelte';
 	import Photo from './icons/Photo.svelte';
 	import Rose from './icons/Rose.svelte';
@@ -33,6 +34,8 @@
 	<LogoTransparent {styled} />
 {:else if name === 'stats'}
 	<Stats {styled} />
+{:else if name === 'login'}
+	<Login {styled} />
 {/if}
 
 <style>

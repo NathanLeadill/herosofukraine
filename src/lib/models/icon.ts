@@ -7,7 +7,8 @@ type IconType =
   "chevron-up" |
   "link" |
   "marker" |
-  "stats"
+  "stats" |
+  "login"
 ;
 
 export type { IconType };
