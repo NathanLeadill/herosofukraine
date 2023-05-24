@@ -79,34 +79,8 @@
     border-top: 2px solid var(--secondary-lighter);
     display: flex;
     flex-direction: column;
-    margin-top: 24px;
+    margin-top: 20px;
     padding: 24px 0;
-  }
-  .link {
-    align-items: center;
-    border-radius: 10px;
-    color: var(--secondary-light);
-    display: flex;
-    font-size: 14px;
-    margin-bottom: 12px;
-    padding: 10px 16px;
-    text-decoration: none;
-    transition: all ease .2s;
-  }
-  .link:hover {
-    background: var(--primary-lighter);
-    opacity: 0.75;
-    transition: all ease .2s;
-  }
-  .link:focus,
-  .link:active {
-    opacity: 0.5;
-    transition: all ease .2s;
-  }
-  .active {
-    background: var(--primary-lighter);
-    box-shadow: 0 2px 4px var(--shadow);
-    color: var(--secondary);
   }
   .sidebar-footer {
     background: var(--primary);

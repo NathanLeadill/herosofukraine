@@ -125,15 +125,6 @@
           });
         }
         
-        // Get the current map bounds
-        const bounds = map.getBounds();
-        // Calculate the longitude range of the current view
-        const longitudeRange = bounds.getEast() - bounds.getWest();
-        // Calculate the desired longitude offset (e.g., 75% of the longitude range)
-        const longitudeOffset = 0.75 / longitudeRange;
-        // Calculate the new longitude value for the center
-        const desktopCenter = [bounds.getCenter().lat, bounds.getWest() + longitudeOffset];
-        
         // onClick
         if(isMobile) {
           // Add an event listener to open the popup when the marker is clicked
@@ -150,10 +141,21 @@
           marker.on('click', function(e) {
             // Set the selected report in the store
             reportState.setSelectedReport(report);
-            // Center the map on the marker
-            const latlng = e.latlng;
+            
+            /* Center the map on the marker */
+            // Calculate the desired center position
+            const hiddenOffset = 570; // Report size + padding
+            // const relativeCenterX = (map.getSize().x - hiddenOffset) / 2;
+            const relativeCenterX = (map.latLngToContainerPoint(marker.getLatLng()).x + hiddenOffset) / 2;
+            // Convert the relative center to LatLng coordinates
+            const centerLatLng = map.containerPointToLatLng([relativeCenterX, map.latLngToContainerPoint(marker.getLatLng()).y]);
+            
+
+            // Get the current zoom level
             const zoom = map.getZoom();
-            map.setView(desktopCenter, zoom)
+            
+            // Set the new center of the map
+            map.setView(centerLatLng, zoom);
           })
         }
         

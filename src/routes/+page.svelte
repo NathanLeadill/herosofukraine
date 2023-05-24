@@ -76,11 +76,12 @@
       height: calc(100vh - 250px);
       left: 0;
       overflow: auto;
-      padding-top: calc(100px + 18px);
+      padding-top: calc(100px + 28px);
+			padding-bottom: 38px;
       padding-left: 48px;
       padding-right: 48px;
       position: absolute;
-      width: 564px;
+      width: 570px;
       z-index: 2;
 		}
 		.mapNav-container {

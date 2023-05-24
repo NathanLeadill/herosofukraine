@@ -187,17 +187,17 @@
     color: var(--secondary-light);
     display: block;
     font-size: 12px;
-    position: absolute;
+    position: relative;
     text-align: center;
     width: 100%;
   }
   .content p.has-img {
-    margin: 10px 0;
+    margin: 10px 0 0;
   }
   .description {
     font-size: 16px;
     line-height: 1.5;
-    padding: 8px 0 18px;
+    padding: 8px 0 0px;
   }
   .first-letter {
     float: left;

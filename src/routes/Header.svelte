@@ -63,15 +63,15 @@
 			box-shadow: none;
 			padding: 0;
 			position: absolute;
+			z-index: 3;
 		}
 		.mobile {
 			display: none;
 		}
 		.mapNav-container {
 			backdrop-filter: blur(16px);
-			background: rgba(21, 22, 20, 0.5);
+			background: rgba(21, 22, 20, 0.85);
 			border-bottom-right-radius: 32px;
-			box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
 			display: flex;
 			height: 100%;
 			padding: 0px 48px;
@@ -88,7 +88,7 @@
 			padding-left: 0;
 			position: absolute;
 			left: 260px;
-			width: calc(100vw - 260px);
+			width: auto;
 		}
 		.desktop-header .sidebar-on {
 			margin-left: 0;

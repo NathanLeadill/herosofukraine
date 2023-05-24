@@ -30,7 +30,13 @@
     // if today display today else display the day of the week
     isToday(selectedDate)
       ? "Today"
-      : selectedDate.toLocaleDateString("en-US", { weekday: "long" })
+      : (
+        // if yesterday display yesterday else display the day of the week
+        selectedDate.toLocaleDateString("en-US", { weekday: "long" }) ===
+        new Date(Date.now() - 86400000).toLocaleDateString("en-US", { weekday: "long" })
+          ? "Yesterday"
+          : selectedDate.toLocaleDateString("en-US", { weekday: "long" })
+      )
   )
 
   $: buttonsStyle = `
