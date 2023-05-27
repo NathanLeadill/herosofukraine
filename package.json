@@ -36,6 +36,7 @@
 	"type": "module",
 	"dependencies": {
 		"dotenv": "^16.0.3",
+		"leaflet-active-area": "^1.2.1",
 		"nanoid": "^4.0.2",
 		"node-fetch": "^3.3.1"
 	}

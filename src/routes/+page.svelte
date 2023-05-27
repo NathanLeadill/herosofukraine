@@ -7,8 +7,16 @@
 	import Sidebar from "$components/sidebar.svelte";
 	import { reports } from "$lib/stores";
 	import { reportState } from "$lib/stores";
-	import { onMount } from "svelte";
-
+	import { onDestroy, onMount } from "svelte";
+	import { dateState } from "$lib/stores";
+	import type { ReportType } from "$models/report";
+	
+	// Subscribe to selectedDate store
+  let selectedDate: Date;
+  const unsubscribeDateState = dateState.subscribe((value) => {
+    selectedDate = value;
+  });
+	
 	export let data: any;
 	let fetchedReports = data.filteredReports;
 	for (const item of fetchedReports) {
@@ -16,7 +24,15 @@
 	}
 	
 	onMount(() => {
-		reportState.setSelectedReport(fetchedReports[0]);
+		// set the report state to be the main report of the day
+		reportState.setSelectedReport(fetchedReports.find((report: ReportType) => (
+			report.date.getDate() === selectedDate.getDate()
+		)));
+	});
+	
+	onDestroy(async () => {
+    // Unsubscribe from dateState store
+    unsubscribeDateState();
 	});
 </script>
 
@@ -84,6 +100,28 @@
       width: 570px;
       z-index: 2;
 		}
+		/* SCROLLBAR ONLY VISIBLE ON HOVER */
+		/* Firefox */
+		.report-container:hover {
+			scrollbar-color: transparent;
+			transition: all 0.25s ease-in-out;
+		}
+		.report-container:hover {
+			scrollbar-width: thin;
+			scrollbar-color: var(--primary-lighter) transparent;
+			transition: all 0.25s ease-in-out;
+		}
+		
+		/* Chrome, Edge, and Safari */
+		.report-container::-webkit-scrollbar-thumb {
+			background-color: transparent;
+			transition: all 0.25s ease-in-out;
+		}
+		.report-container:hover::-webkit-scrollbar-thumb {
+			background-color: var(--primary-lighter);
+			transition: all 0.25s ease-in-out;
+		}
+		
 		.mapNav-container {
 			display: none;
 		}

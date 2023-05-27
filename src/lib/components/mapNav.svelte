@@ -5,7 +5,22 @@
 	import { onMount } from "svelte";
 	import Button from "./button.svelte";
 	import Icon from "./icon.svelte";
+  import { reportState } from "$lib/stores";
+  import { reports } from "$lib/stores";
+	import type { ReportType } from "$models/report";
   
+  // Subscribe to reports store
+  let allReports: ReportType[];
+    reports.subscribe(state => {
+   	allReports = state;
+  });
+  
+  // Subscribe to selectedReport store
+  let selectedReport: ReportType | undefined;
+  reportState.subscribe((value) => {
+    selectedReport = value;
+  });
+
   // Subscribe to date state in the store
   let selectedDate = new Date();
   dateState.subscribe((value) => {
@@ -18,6 +33,12 @@
       return;
     } else {
       setPreviousOrNextDay(selectedDate, type);
+      reportState.setSelectedReport(allReports?.find(report => (
+        report.date.getDate() === selectedDate.getDate() && (
+          report.type === "main" ||
+          report.type === "secondary"
+        )
+      )));
     }
   }
   

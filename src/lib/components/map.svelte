@@ -5,9 +5,8 @@
 	import { curtainState } from '$lib/stores';
   import type { Map } from 'leaflet';
   import { onDestroy, onMount } from 'svelte';
-	import { dummyReports } from '$lib/objects/dummyData';
 	import type { IconType } from '$models/icon';
-	import { getMainActiveReport } from '$lib/helpers';
+	import { getMainReport } from '$lib/helpers';
   import { reports } from '$lib/stores';
 	
   let leaflet: typeof import('leaflet');
@@ -16,6 +15,12 @@
   let allReports: ReportType[] | undefined;
   reports.subscribe(value => allReports = value);
   
+  // Subscribe to selectedReport store
+  let selectedReport: ReportType | undefined;
+    reportState.subscribe(state => {
+    selectedReport = state.selectedReport;
+  });
+
   // Subscribe to curtain state in the store
   let curtainOpen;
   curtainState.subscribe(value => curtainOpen = value);
@@ -27,11 +32,26 @@
     handleStoreChange();
   });
   
+  // Keep track of active marker
+  let activeMarker = null;
+
   function handleStoreChange() {
     console.log('Date changed. Creating markers...');
     createMarkers();
   }
 
+  function updateActiveMarker(marker: any | null) {
+    // Remove active class from all markers
+    map.eachLayer((layer) => {
+      if (layer instanceof leaflet.Marker && layer !== marker) {
+        layer.getElement()?.classList.remove('active-marker');
+      }
+    });
+    
+    // Add active class to the marker if exists
+    marker && marker.getElement()?.classList.add('active-marker');
+  }
+  
   // Dynamically import SVGs
   async function loadSvg(icon: IconType) {
     const { default: svg } = await import(`../images/${icon}.svg`);
@@ -66,7 +86,6 @@
       const dailyReports = allReports.filter(report => {
         return report.date.toDateString() === selectedDate.toDateString();
       });
-      console.log('# dailyReports :', dailyReports)
 
       // Add markers for each report location
       dailyReports.forEach(async (report) => {
@@ -75,14 +94,14 @@
         const button = leaflet.DomUtil.create('button', 'btn-view-report');
         button.innerHTML = 'Open';
         button.addEventListener('click', toggleCurtain);
-        
+
         // Create markers
         const marker = leaflet.marker(
           report.location,
           {
             autoPanPadding: [50, 50],
             icon: leaflet.divIcon({
-              className: 'marker',
+              className: `marker ${report.id === selectedReport?.id ? 'active-marker' : ''}`,
               html: `
                 <img src="${await loadSvg(report.icon)}" alt="icon" />
                 <img src="${await loadSvg('marker')}" alt="marker" />
@@ -125,44 +144,40 @@
           });
         }
         
-        // onClick
-        if(isMobile) {
-          // Add an event listener to open the popup when the marker is clicked
-          marker.on('click', (e) => {
+        marker.on('click', function(e) {
+          updateActiveMarker(marker);
+
+          // Get the latlng and zoom of the marker
+          const latlng = e.latlng;
+          const zoom = map.getZoom();
+        
+          if(isMobile) {
+            // Open popup
             marker.openPopup();
+            // Update the selected report in the store
             reportState.setSelectedReport(report);
             
             // Center the map on the marker
             const latlng = e.latlng;
             const zoom = map.getZoom();
             map.setView([latlng.lat + 1.5, latlng.lng], zoom)
-          });
-        } else {
-          marker.on('click', function(e) {
+            
+          } else {
             // Set the selected report in the store
             reportState.setSelectedReport(report);
             
-            /* Center the map on the marker */
-            // Calculate the desired center position
-            const hiddenOffset = 570; // Report size + padding
-            // const relativeCenterX = (map.getSize().x - hiddenOffset) / 2;
-            const relativeCenterX = (map.latLngToContainerPoint(marker.getLatLng()).x + hiddenOffset) / 2;
-            // Convert the relative center to LatLng coordinates
-            const centerLatLng = map.containerPointToLatLng([relativeCenterX, map.latLngToContainerPoint(marker.getLatLng()).y]);
-            
-
-            // Get the current zoom level
-            const zoom = map.getZoom();
-            
-            // Set the new center of the map
-            map.setView(centerLatLng, zoom);
-          })
-        }
+            // Center the map on the marker
+            map.setView(latlng, zoom);
+          }
+        })
+        
+        // onClick
         
         // Event to clear the selected report when the map is clicked
         // NOTE: Could be improved by detecting if any popup is open but couldn't find a way to do it in a clean way
         map.on('click', function(e) {
-          reportState.setSelectedReport(getMainActiveReport());
+          updateActiveMarker(null);
+          reportState.setSelectedReport(getMainReport());
         });
       });
     } else { // !reports
@@ -175,22 +190,22 @@
       // Dynamically import leaflet to avoid SSR issues
       leaflet = await import('leaflet');
       
-      // Check map element
+      // Check map div
       mapElement = document.getElementById('map');
       if (!mapElement) {
-          console.log('No map element found.');
+          console.log('No map div found.');
           return;
       }
       
       // Create map
-      const lastReportLocation = getMainActiveReport().location;
+      const lastReportLocation = getMainReport().location;
       const mapOptions = {
         center: lastReportLocation,
         zoom: 6,
         zoomControl: false,
         locale: 'en'
       }
-      map = leaflet.map(mapElement, mapOptions)
+      map = leaflet.map(mapElement, mapOptions);
       
       markersLayer = leaflet.layerGroup().addTo(map);
       
@@ -200,10 +215,10 @@
       }).addTo(map);
       
       // Load openstreetmap tiles & add to map
-      leaflet.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', {
+      leaflet.tileLayer('https://tile.jawg.io/df3d3a8f-03cf-429a-a810-0f2d7f3b8afb/{z}/{x}/{y}{r}.png?access-token=dGVtejZApRkPWVkK9YT4TrVnkGM5qs36eEZyk20sbBu1LzgnYrbA1z4qGwl1jFN4', {
         maxZoom: 16,
         minZoom: 3,
-        attribution: '&copy; <a href="https://carto.com/">carto.com</a>'
+        attribution: '<a href=\"https://www.jawg.io\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org\" target=\"_blank\">&copy; OpenStreetMap</a>'
       }).addTo(map);
       
       // Create markers
@@ -213,7 +228,7 @@
       console.log('Leaflet map only works in browser.');
     }
   });
-
+  
   onDestroy(async () => {
     // Unsubscribe from dateState store
     unsubscribeDateState();
@@ -233,7 +248,7 @@
     height: calc(100vh - 46px);
     max-width: 100%;
     position: absolute;
-    inset: 0px;
+    inset: 0;
     width: 100vw;
     z-index: 1;
   }
@@ -243,7 +258,8 @@
       display: block;
       height: calc(100vh - 250px);
 			position: absolute;
-      width: 100%;
+      left: 420px;
+      width: calc(100% - (420px - 148px));
 		}
     #map:after {
       background: linear-gradient(90deg, var(--primary) calc(564px - 120px), rgba(21, 22, 20, 0.8) 564px, rgba(21, 22, 20, 0) calc(564px + 120px), transparent 100%);
@@ -252,7 +268,8 @@
       height: 100%;
       pointer-events: none;
       position: absolute;
-      top: 0; left: 0;
+      top: 0; 
+      left: -420px;
       width: 100%;
       z-index: 9999;
     }

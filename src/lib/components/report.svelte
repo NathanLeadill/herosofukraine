@@ -18,6 +18,8 @@
     data = value;
   });
 
+  $: console.log('# selectedReport :', selectedReport);
+
 </script>
   
 {#if selectedReport}
@@ -207,7 +209,7 @@
     margin-right: 8px;
     text-transform: uppercase;
   }
-
+  
   @keyframes pulse {
     0% {
       scale: 0.88;

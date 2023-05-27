@@ -34,6 +34,7 @@ function selectedReportStore() {
     },
   };
 };
+export const reportState = selectedReportStore();
 
 // selectedDate store
 const selectedDateStore = writable<Date>(new Date());
@@ -85,5 +86,4 @@ function reportsStore() {
 }
 
 export const curtainState = toggleCurtain(false);
-export const reportState = selectedReportStore();
 export const reports = reportsStore();

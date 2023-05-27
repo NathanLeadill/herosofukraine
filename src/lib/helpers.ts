@@ -63,7 +63,7 @@ let allReports: ReportType | undefined;
 reports.subscribe(state => {
 	allReports = state;
 });
-export function getMainActiveReport() {
+export function getMainReport() {
 	return allReports.find((report: ReportType) => (
 		report.status === 'active' && 
 		report.type === 'main'

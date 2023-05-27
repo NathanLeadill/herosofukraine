@@ -3,7 +3,7 @@
   --accent-hover: #E0B300;
   --accent-click: #cda400;
   --accent-light: #62572c;
-	--primary: rgb(21, 22, 20);
+	--primary: #151614;
 	--primary-light: #24252c;
 	--primary-lighter: #34353c;
 	--secondary: #f3f3f3;
@@ -41,6 +41,7 @@
 /* Container */
 .leaflet-control-attribution {
   opacity: 0.85 !important;
+  right: 148px !important;
   text-align: center !important;
   width: 100vw !important;
 }
@@ -83,6 +84,18 @@
   background-color: rgba(96, 96, 96, 0.4);
   backdrop-filter: blur(10px) saturate(180%);
   color: var(--secondary);
+}
+
+/* .marker:not([class*='active-marker']) { */
+  /* animation: marker-pulse 1.8s ease infinite;
+  filter: drop-shadow(0 0 3px var(--accent)); */
+/* } */
+.active-marker {
+  animation: marker-pulse 1.8s ease infinite;
+  filter: drop-shadow(0 0 5px var(--secondary));
+}
+.active-marker img:last-child {
+  filter: saturate(0) !important;
 }
 
 .popup-title {
@@ -138,7 +151,7 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--primary);
+  background: transparent;
 }
 
 *::-webkit-scrollbar-thumb {

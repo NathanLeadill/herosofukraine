@@ -18,7 +18,8 @@ export async function load({ params, query }) {
         icon: report.title.includes('the') ? 'rose' : 'globe',
         images: report.url ? [{ 
           id: nanoid(), 
-          url: dummyImages[Math.floor(Math.random() * dummyImages.length)], 
+          url: dummyImages[Math.floor(Math.random() * dummyImages.length)],
+          caption: "Image caption here", 
         }] : [],
         location: [randomLat, randomLng],
         date: new Date(report.created),

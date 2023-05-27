@@ -28,7 +28,12 @@
 
 </script>
 
-<a href={`/${pageName}`} class:active={activePage} class="icon-container">
+<a 
+	href={`/${pageName}`} 
+	class:active={activePage} 
+	class="icon-container"
+	class:comingSoonLink={comingSoon}
+>
 	<Icon 
 		{color} 
 		name={iconName} 
@@ -36,7 +41,7 @@
 	/>
 	<span 
 		class="icon-subtext"
-		class:comingSoon={comingSoon}
+		class:comingSoonLabel={comingSoon}
 	>
 		{label}
 	</span>
@@ -45,6 +50,9 @@
 <style>
 	.active span {
 		color: var(--accent);
+	}
+	.comingSoonLink {
+		pointer-events: none;
 	}
 	.icon-container {
 		align-items: center;
@@ -94,7 +102,7 @@
 			font-size: 14px;
 			padding-left: 16px;
 		}
-		.comingSoon::after {
+		.comingSoonLabel::after {
 			bottom: 50%;
 			content: "(Coming Soon)";
 			color: var(--secondary-light);
